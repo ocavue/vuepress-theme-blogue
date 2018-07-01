@@ -1,10 +1,13 @@
 {
     "name": "vuepress-theme-blogue",
-    "version": "0.0.1",
+    "version": "0.0.7",
     "repository": "https://github.com/ocavue/vuepress-theme-blogue.git",
     "author": "ocavue <ocavue#gmail.com>",
     "license": "MIT",
     "dependencies": {
-        "github-markdown-css": "^2.10.0"
+        "@material/elevation": "^0.36.1",
+        "github-markdown-css": "^2.10.0",
+        "node-sass": "^4.9.0",
+        "sass-loader": "^7.0.3"
     }
 }
