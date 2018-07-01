@@ -30,9 +30,12 @@ export default {
             date: this.page.frontmatter.date,
             path: this.page.path,
             postImgStyle: {
-                background: `
-                    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%,
-                    rgba(0, 0, 0, 0.85) 100%),
+                'background-image': `
+                    linear-gradient(
+                        to bottom,
+                        rgba(0, 0, 0, 0.05) 0%,
+                        rgba(0, 0, 0, 0.60) 100%
+                    ),
                     url('${this.page.frontmatter.image}')
                 `,
             },
