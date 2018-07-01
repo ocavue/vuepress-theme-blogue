@@ -7,10 +7,9 @@
             <PostPage class="app__main-content" v-else />
         </main>
         <footer class="app__footer">
-            Copyright © 2018
-            <router-link class="app__footer-link" :to="'/about.html'">Ocavue</router-link>
+            Power by <a class="app__footer-link" href="https://github.com/vuejs/vuepress">VuePress</a>
             <br>
-            Power by <a class="app__footer-link" href="https://github.com/vuejs/vuepress">vuepress</a>
+            Theme <a class="app__footer-link" href="https://github.com/ocavue/vuepress-theme-blogue">Blogue</a>
         </footer>
         <div class="app__debug" v-if="debug">
             <pre>debug info:</pre>
@@ -31,7 +30,7 @@ export default {
     components: { Toolbar, Sidebar, HomePage, PostPage },
     data: function() {
         return {
-            debug: true, // TODO make this configurable
+            debug: false, // TODO make this configurable
         }
     },
 }

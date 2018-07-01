@@ -35,4 +35,4 @@ module.exports = {
 - [ ] Configurable
 - [ ] Design
 - [ ] Performance
-- [ ]
+- [ ] Ripple effect from Material Design
