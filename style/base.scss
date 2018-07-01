@@ -1,0 +1,17 @@
+$break-small: 640px;
+$break-large: 960px;
+
+@mixin respond-to($width) {
+    @if $width == 's' {  // s for small
+        @media (max-width: $break-small) { @content; }
+    }
+    @else if $width == 'm' {  // m for medium
+        @media (min-width: $break-small) and (max-width: $break-large) { @content; }
+    }
+    @else if $width == 'l' {  // l for large
+        @media (min-width: $break-large) { @content; }
+    }
+    @else {
+        @error "unknown $width";
+    }
+}

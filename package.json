@@ -1,0 +1,10 @@
+{
+    "name": "vuepress-theme-blogue",
+    "version": "0.0.1",
+    "repository": "https://github.com/ocavue/vuepress-theme-blogue.git",
+    "author": "ocavue <ocavue#gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "github-markdown-css": "^2.10.0"
+    }
+}
