@@ -2,7 +2,7 @@
     <div>
         <PostCard
             v-for="page in this.$site.pages"
-            v-if="page.path !== '/' && page.path !== '/about.html'"
+            v-if="isVisible(page)"
             :key="page.key"
             :page="page"
             :showContent="false"
@@ -18,10 +18,21 @@ import PostCard from "./PostCard"
 export default {
     name: "HomePage",
     components: { PostCard },
-    data() {
-        return {
-            posts: [],
-        }
+
+    methods: {
+        isVisible(page) {
+            if (["/", "/about.html"].includes(page.path)) {
+                return false
+            }
+
+            for (let chunk of page.path.split("/")) {
+                if (chunk.startsWith("__")) {
+                    return false
+                }
+            }
+
+            return true
+        },
     },
 }
 </script>
