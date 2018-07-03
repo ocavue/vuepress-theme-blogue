@@ -52,8 +52,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// @import "github-markdown-css/github-markdown.css";
-// TODO github-markdown-css is not working
+@import "~github-markdown-css/github-markdown.css";
 @import "./style/elevation";
 @import "./style/base";
 @import "./style/theme";
