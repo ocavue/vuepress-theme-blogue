@@ -74,7 +74,7 @@ body {
         margin-top: 32px;
     }
     @include respond-to("l") {
-        width: 720px;
+        width: 760px;
         margin-top: 64px;
     }
 }
