@@ -1,6 +1,6 @@
 # vuepress-theme-blogue
 
-> Yet another vuepress theme based on material design
+> A [VuePress](https://vuepress.vuejs.org/) theme made for blog
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Version](https://img.shields.io/npm/v/vuepress-theme-blogue.svg)](https://www.npmjs.com/package/vuepress-theme-blogue)
@@ -12,7 +12,7 @@ https://ocavue.github.io/
 
 ## Usage
 
-Add this `.vuepress/config.js`
+Beacause of VuePress's limit, you have to add some extra configs in `.vuepress/config.js` to make this theme works.
 
 ```js
 const path = require("path")
@@ -31,8 +31,6 @@ module.exports = {
 
 ## TODO
 
-- [ ] Markdown style
+- [ ] Tags
+- [ ] Comments
 - [ ] Configurable
-- [ ] Design
-- [ ] Performance
-- [ ] Ripple effect from Material Design
