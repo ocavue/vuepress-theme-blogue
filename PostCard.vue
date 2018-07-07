@@ -2,7 +2,7 @@
     <div class="post">
         <div class="post__img" :style="postImgStyle">
             <router-link class="post__img-title post__img-title--link" v-if="showLink" :to="this.path">
-                {{ this.title }}
+                {{ this.page.title }}
             </router-link>
             <span class="post__img-title" v-else>
                 {{ this.title }}
@@ -25,12 +25,28 @@ export default {
     name: "PostCard",
     props: ["page", "showContent", "showLink"],
     data: function() {
-        let data = {
-            title: this.page.title,
-            date: this.page.frontmatter.date,
-            path: this.page.path,
-            postImgStyle: {
-                'background-image': `
+        return {
+            title: null,
+            date: null,
+            path: null,
+            postImgStyle: null,
+        }
+    },
+    created: function() {
+        this.initialize()
+    },
+    watch: {
+        $route: function(to, from) {
+            this.initialize()
+        },
+    },
+    methods: {
+        initialize: function() {
+            this.title = this.page.title
+            this.date = this.page.frontmatter.date
+            this.path = this.page.path
+            this.postImgStyle = {
+                "background-image": `
                     linear-gradient(
                         to bottom,
                         rgba(0, 0, 0, 0.05) 0%,
@@ -38,16 +54,9 @@ export default {
                     ),
                     url('${this.page.frontmatter.image}')
                 `,
-            },
-        }
-        for (let key of ["title", "date"]) {
-            if (!data[key]) {
-                console.warn(`Can't find ${key} in ${data.path}`)
             }
-        }
-        return data
+        },
     },
-    methods: {},
 }
 </script>
 
