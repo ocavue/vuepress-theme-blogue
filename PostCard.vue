@@ -27,13 +27,14 @@ export default {
     data: function() {
         return {
             title: null,
-            date: null,
             path: null,
+            date: null,
             postImgStyle: null,
         }
     },
     created: function() {
         this.initialize()
+        this.checkdata()
     },
     watch: {
         $route: function(to, from) {
@@ -41,10 +42,15 @@ export default {
         },
     },
     methods: {
+        checkdata: function() {
+            if (this.date.length !== 10) {
+                throw new Error(`date "${this.date}" is not valid`)
+            }
+        },
         initialize: function() {
             this.title = this.page.title
-            this.date = this.page.frontmatter.date
             this.path = this.page.path
+            this.date = this.page.frontmatter.date.split("T")[0] // 1999-12-31T00:00:00.000Z => 1999-12-31
             this.postImgStyle = {
                 "background-image": `
                     linear-gradient(
