@@ -50,7 +50,12 @@ export default {
         initialize: function() {
             this.title = this.page.title
             this.path = this.page.path
-            this.date = this.page.frontmatter.date.split("T")[0] // 1999-12-31T00:00:00.000Z => 1999-12-31
+            if (typeof this.page.frontmatter.date === "string") {
+                if (this.page.frontmatter.date.indexOf("T") > -1) {
+                    // 1999-12-31T00:00:00.000Z => 1999-12-31
+                    this.date = this.page.frontmatter.date.split("T")[0]
+                }
+            }
             this.postImgStyle = {
                 "background-image": `
                     linear-gradient(
