@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { isVisiblePost } from "./utils"
+
 export default {
     name: "PostCard",
     props: ["page", "showContent", "showLink"],
@@ -34,7 +36,6 @@ export default {
     },
     created: function() {
         this.initialize()
-        this.checkdata()
     },
     watch: {
         $route: function(to, from) {
@@ -42,29 +43,28 @@ export default {
         },
     },
     methods: {
-        checkdata: function() {
-            if (this.date.length !== 10) {
-                throw new Error(`date "${this.date}" is not valid`)
-            }
-        },
         initialize: function() {
             this.title = this.page.title
             this.path = this.page.path
-            if (typeof this.page.frontmatter.date === "string") {
-                if (this.page.frontmatter.date.indexOf("T") > -1) {
-                    // 1999-12-31T00:00:00.000Z => 1999-12-31
-                    this.date = this.page.frontmatter.date.split("T")[0]
+            let date = this.page.frontmatter.date
+            if (!(typeof date === "string" && date.length >= 10)) {
+                let msg = `date "${date}" is not valid`
+                if (isVisiblePost(this.page)) {
+                    throw new Error(msg)
+                } else {
+                    console.warn(msg)
                 }
+            } else {
+                // 1999-12-31T00:00:00.000Z => 1999-12-31
+                this.date = date.slice(0, 10)
             }
-            this.postImgStyle = {
-                "background-image": `
-                    linear-gradient(
-                        to bottom,
-                        rgba(0, 0, 0, 0.05) 0%,
-                        rgba(0, 0, 0, 0.60) 100%
-                    ),
-                    url('${this.page.frontmatter.image}')
-                `,
+
+            if (typeof this.page.frontmatter.image === "string") {
+                this.postImgStyle = {
+                    "background-image": `linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.60) 100%), url('${
+                        this.page.frontmatter.image
+                    }')`,
+                }
             }
         },
     },

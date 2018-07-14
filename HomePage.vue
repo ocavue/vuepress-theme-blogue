@@ -13,26 +13,13 @@
 
 <script>
 import PostCard from "./PostCard"
+import { isVisiblePost } from "./utils"
 
 export default {
     name: "HomePage",
     components: { PostCard },
     methods: {
-        isVisiblePost(page) {
-            // not posts
-            if (["/", "/about.html"].includes(page.path)) {
-                return false
-            }
-
-            // hidden posts
-            for (let part of page.path.split("/")) {
-                if (part.startsWith("__")) {
-                    return false
-                }
-            }
-
-            return true
-        },
+        isVisiblePost: isVisiblePost
     },
 }
 </script>
