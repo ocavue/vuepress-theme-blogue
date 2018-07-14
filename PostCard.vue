@@ -1,18 +1,19 @@
 <template>
     <div class="post">
-        <div class="post__img" :style="postImgStyle">
-            <router-link class="post__img-title post__img-title--link" v-if="showLink" :to="this.path">
+        <router-link
+            :class="{ 'post__img': true, 'post__img--nolink': !showLink }"
+            :style="postImgStyle"
+            :to="this.path"
+        >
+            <span class="post__img-title">
                 {{ this.page.title }}
-            </router-link>
-            <span class="post__img-title" v-else>
-                {{ this.title }}
             </span>
             <span class="post__img-info">
                 <!-- <span>share</span> -->
                 <!-- TODO make a share button -->
                 <span>{{ this.date }}</span>
             </span>
-        </div>
+        </router-link>
         <div v-if="showContent" class="post__content markdown-body">
             <!-- markdown-body is used by github-markdown-css -->
             <Content custom/>
@@ -103,6 +104,7 @@ export default {
     flex-direction: column;
     justify-content: flex-end;
     align-items: stretch;
+    text-decoration: none;
 
     @include respond-to("s") {
         height: 240px;
@@ -114,18 +116,15 @@ export default {
         height: 360px;
     }
 
+    &--nolink {
+        cursor: default;
+    }
+
     &-title {
         color: #ffffff;
         margin-left: 32px;
         margin-right: 32px;
         margin-bottom: 32px;
-        text-decoration: none;
-
-        &--link {
-            &:hover {
-                color: $premier-color;
-            }
-        }
     }
 
     &-title {
