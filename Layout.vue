@@ -83,7 +83,7 @@ body {
     color: #c4c4c4;
     text-align: center;
     padding-bottom: 48px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 2rem;
 
     &-link {
