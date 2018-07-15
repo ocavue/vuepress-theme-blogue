@@ -34,3 +34,7 @@ module.exports = {
 - [ ] Tags
 - [ ] Comments
 - [ ] Configurable
+
+## Contribution
+
+- [Git Commit Message Style](http://udacity.github.io/git-styleguide/)
