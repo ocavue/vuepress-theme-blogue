@@ -16,7 +16,7 @@
         </router-link>
         <div v-if="showContent" class="post__content markdown-body">
             <!-- markdown-body is used by github-markdown-css -->
-            <Content custom/>
+            <Content/>
         </div>
     </div>
 </template>
@@ -71,6 +71,28 @@ export default {
     },
 }
 </script>
+
+
+<style lang="scss">
+// https://stackoverflow.com/q/4086107
+// https://stackoverflow.com/a/11842865
+
+$offset: 72px; // offset depends on toolbar's height and the gap bwtween toolbar and header
+
+.post__content h1 {
+    margin-top: -$offset + 24px !important; // Use `!important` to cover github-markdown-css's css
+    padding-top: $offset;
+}
+
+.post__content h2,
+.post__content h3,
+.post__content h4,
+.post__content h5,
+.post__content h6 {
+    margin-top: -$offset + 8px !important;
+    padding-top: $offset;
+}
+</style>
 
 <style lang="scss" scoped>
 @import "~github-markdown-css/github-markdown.css";
