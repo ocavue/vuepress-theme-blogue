@@ -3,6 +3,10 @@
         <nav class="toolbar__nav">
             <span @click="menuClick" class="toolbar__nav-button icon-menu"></span>
             <router-link :to="'/'" class="toolbar__nav-item">Ocavue's Blog</router-link>
+            <span class="toolbar__nav-item __only_show_in_large_screen">Item 1</span>
+            <span class="toolbar__nav-item __only_show_in_large_screen">Item 2</span>
+            <span class="toolbar__nav-item __only_show_in_large_screen">Item 3</span>
+            <span class="toolbar__nav-item __only_show_in_large_screen">Item 4</span>
         </nav>
         <nav class="toolbar__nav toolbar__nav--right">
             <!-- placeholder -->
@@ -29,15 +33,32 @@ export default {
 @import "./style/theme";
 @import "./style/elevation";
 
+.__only_show_in_large_screen {
+    @include respond-to("s") {
+        display: none !important;
+    }
+}
 .toolbar {
     @include mdc-elevation(4);
 
-    position: fixed;
+    position: sticky;
     width: 100%;
+    top: -200px;
+    height: 256px;
     background-color: #ffffff;
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     padding-right: 32px;
+    @include respond-to("s") {
+        justify-content: flex-start;
+    }
+    @include respond-to("m") {
+        justify-content: center;
+    }
+    @include respond-to("l") {
+        justify-content: center;
+    }
 }
 
 .toolbar__nav {
@@ -45,21 +66,38 @@ export default {
     align-items: center;
 
     &-button {
-        height: 56px;
-        width: 56px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
         @include respond-to("s") {
+            height: 56px;
+            width: 56px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         @include respond-to("m") {
-            padding-left: 8px;
-            padding-right: 8px;
+            display: none;
         }
         @include respond-to("l") {
-            padding-left: 8px;
-            padding-right: 8px;
+            display: none;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &-button {
+        @include respond-to("s") {
+            height: 56px;
+            width: 56px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @include respond-to("m") {
+            display: none;
+        }
+        @include respond-to("l") {
+            display: none;
         }
 
         &:hover {
