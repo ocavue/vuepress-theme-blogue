@@ -83,14 +83,14 @@ body {
     color: #c4c4c4;
     text-align: center;
     padding-bottom: 48px;
-    font-size: 0.9em;
-    line-height: 2em;
+    font-size: 0.9rem;
+    line-height: 2rem;
 
     &-link {
         // background-color: rgba(0, 0, 0, 0.5);
         color: #c4c4c4;
-        padding-top: 0.4em;
-        padding-bottom: 0.4em;
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
 
         &:hover {
             color: $premier-color;
