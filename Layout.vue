@@ -1,9 +1,10 @@
 <template>
     <div id="root">
         <Sidebar/>
-        <toolbar/>
-        <main class="app__main">
-            <HomePage class="app__main-content" v-if="this.$page.path === this.$site.base" />
+        <Tocbar :page="this.$page" :allow="!isHomePage()"/>
+        <Toolbar :showTocbarButtom="!isHomePage()"/>
+        <main :class="{'app__main': true, 'app__main--toc-open': isTocbarOpen}">
+            <HomePage class="app__main-content" v-if="isHomePage()" />
             <PostPage class="app__main-content" v-else />
         </main>
         <footer class="app__footer">
@@ -22,15 +23,31 @@
 <script>
 import Toolbar from "./Toolbar"
 import Sidebar from "./Sidebar"
+import Tocbar from "./Tocbar"
 import HomePage from "./HomePage.vue"
 import PostPage from "./PostPage.vue"
 
+import bus from "./bus.js"
+
 export default {
     name: "blogue",
-    components: { Toolbar, Sidebar, HomePage, PostPage },
+    components: { Toolbar, Sidebar, Tocbar, HomePage, PostPage },
+    created: function() {
+        bus.$on("toggleTocbarEvent", to => {
+            if (to !== undefined) {
+                this.isTocbarOpen = to
+            }
+        })
+    },
+    methods: {
+        isHomePage: function() {
+            return this.$page.path === this.$site.base
+        },
+    },
     data: function() {
         return {
             debug: false, // TODO make this configurable
+            isTocbarOpen: false,
         }
     },
 }
@@ -48,7 +65,7 @@ body {
         "Microsoft YaHei", sans-serif;
 }
 
-#app {
+#root {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -62,6 +79,16 @@ body {
     align-items: flex-start;
     padding-top: 56px; // for fixed toolbar
     padding-bottom: 32px;
+
+    will-change: transform;
+    transition: transform 300ms;
+    transform: none;
+
+    @media (min-width: 1200px) {
+        &--toc-open {
+            transform: translateX(-0.5 * $tocbar-width);
+        }
+    }
 }
 
 .app__main-content {

@@ -1,12 +1,9 @@
 <template>
     <header class="toolbar">
-        <nav class="toolbar__nav">
-            <span @click="menuClick" class="toolbar__nav-button icon-menu"></span>
-            <router-link :to="'/'" class="toolbar__nav-item">Ocavue's Blog</router-link>
-        </nav>
-        <nav class="toolbar__nav toolbar__nav--right">
-            <!-- placeholder -->
-        </nav>
+        <span @click="showSidebar" class="toolbar__button icon-menu"></span>
+        <router-link :to="'/'" class="toolbar__item">Ocavue's Blog</router-link>
+        <span style="flex: 1;"></span>
+        <span @click="toogleTocbar" class="toolbar__button icon-toc" v-if="showTocbarButtom"></span>
     </header>
 </template>
 
@@ -15,9 +12,13 @@ import bus from "./bus.js"
 
 export default {
     name: "Toolbar",
+    props: ["showTocbarButtom"],
     methods: {
-        menuClick: function() {
+        showSidebar: function() {
             bus.$emit("showSidebarEvent")
+        },
+        toogleTocbar: function() {
+            bus.$emit("toggleTocbarEvent")
         },
     },
 }
@@ -38,13 +39,9 @@ export default {
     display: flex;
     justify-content: space-between;
     padding-right: 32px;
-}
+    z-index: 1;
 
-.toolbar__nav {
-    display: flex;
-    align-items: center;
-
-    &-button {
+    &__button {
         height: 56px;
         width: 56px;
         display: flex;
@@ -67,7 +64,7 @@ export default {
         }
     }
 
-    &-item {
+    &__item {
         display: inline-flex;
         margin-right: 16px;
         line-height: 56px;

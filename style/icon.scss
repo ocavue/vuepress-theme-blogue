@@ -12,6 +12,11 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-toc:before {
+    @extend .icon;
+    content: "\e8de";
+}
+
 .icon-face:before {
     @extend .icon;
     content: "\e87c";
@@ -24,5 +29,5 @@
 
 .icon-menu:before {
     @extend .icon;
-    content: "\e905";
+    content: "\e5d2";
 }

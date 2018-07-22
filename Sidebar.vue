@@ -1,22 +1,24 @@
 <template>
-    <SidebarContainer :show="show" @hideEvent="hideSidebar">
-        <div class="sidebar__header" @click="hideSidebar">
-            <router-link
-                class="sidebar__header-avatar"
-                :to="'/about.html'"
-                :style="{'background-image': `url(${avatarURL})`}"
-            />
+    <SidebarContainer :show="show" :position="'left'" @hideEvent="hideSidebar">
+        <div class="sidebar" v-show="show">
+            <div class="sidebar__header" @click="hideSidebar">
+                <router-link
+                    class="sidebar__header-avatar"
+                    :to="'/about.html'"
+                    :style="{'background-image': `url(${avatarURL})`}"
+                />
+            </div>
+            <nav class="sidebar__nav" @click="hideSidebar">
+                <router-link class="sidebar__nav-item" :to="'/'">
+                    <span class="sidebar__nav-item-icon icon-home"></span>
+                    <span class="sidebar__nav-item-content">HOME</span>
+                </router-link>
+                <router-link class="sidebar__nav-item" :to="'/about.html'">
+                    <span class="sidebar__nav-item-icon icon-face"></span>
+                    <span class="sidebar__nav-item-content">ABOUT</span>
+                </router-link>
+            </nav>
         </div>
-        <nav class="sidebar__nav" @click="hideSidebar">
-            <router-link class="sidebar__nav-item" :to="'/'">
-                <span class="sidebar__nav-item-icon icon-home"></span>
-                <span class="sidebar__nav-item-content">HOME</span>
-            </router-link>
-            <router-link class="sidebar__nav-item" :to="'/about.html'">
-                <span class="sidebar__nav-item-icon icon-face"></span>
-                <span class="sidebar__nav-item-content">ABOUT</span>
-            </router-link>
-        </nav>
     </SidebarContainer>
 </template>
 
@@ -53,6 +55,23 @@ export default {
 @import "./style/icon";
 
 .sidebar {
+    width: 300px;
+    max-width: calc(100vw - 56px);
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #ffffff;
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    top: 0px;
+    bottom: 0;
+    left: 0;
+
     &__header {
         height: 168px;
         min-height: 168px;

@@ -1,6 +1,8 @@
 $break-small: 640px;
 $break-large: 960px;
 
+$tocbar-width: 320px;
+
 @mixin respond-to($width) {
     @if $width == 's' {  // s for small
         @media (max-width: $break-small) { @content; }

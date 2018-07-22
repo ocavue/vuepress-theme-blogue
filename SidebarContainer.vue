@@ -1,12 +1,17 @@
 <template>
     <span>
-        <transition name="transition-sidebar">
-            <div class="sidebar" v-show="show">
-                <slot></slot>
-            </div>
+        <transition :name="'transition-sidebar--' + this.position">
+            <slot></slot>
         </transition>
         <transition name="transition-cover">
-            <div class="cover" v-show="show" @click="$emit('hideEvent')"></div>
+            <div
+                :class="{
+                    'cover': true,
+                    'cover--right': this.position === 'right',
+                }"
+                v-show="show"
+                @click="$emit('hideEvent')"
+            ></div>
         </transition>
     </span>
 </template>
@@ -16,56 +21,68 @@ import bus from "./bus.js"
 
 export default {
     name: "Sidebar",
-    props: ["show"],
+    props: {
+        show: {
+            type: Boolean,
+        },
+        position: {
+            validator: function(value) {
+                // The value must match one of these strings
+                return ["left", "right"].indexOf(value) !== -1
+            },
+        },
+    },
 }
 </script>
 
 <style lang="scss" scoped>
 @import "./style/icon";
-
-.sidebar {
-    width: 300px;
-    max-width: calc(100vw - 56px);
-    height: 100vh;
-    position: fixed;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background-color: #ffffff;
-
-    z-index: 3;
-    will-change: transform;
-
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-}
+@import "./style/base";
 
 .cover {
-    width: 100%;
-    height: 100%;
     position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-color: rgba(0, 0, 0, 0.7);
     cursor: pointer;
 
     z-index: 2;
     will-change: opacity;
+
+    &--right {
+        @media (min-width: 1200px) {
+            display: none;
+        }
+    }
 }
 
-.transition-sidebar {
+.transition-sidebar--left,
+.transition-sidebar--right {
     &-leave-active {
         transition: transform 150ms ease-in;
     }
     &-enter-active {
         transition: transform 250ms ease-out;
     }
+    &-leave,
+    &-enter-to {
+        transform: none;
+    }
+}
+
+.transition-sidebar--left {
     &-enter,
     &-leave-to {
         transform: translateX(-100%);
     }
-    &-leave,
-    &-enter-to {
-        transform: none;
+}
+
+.transition-sidebar--right {
+    &-enter,
+    &-leave-to {
+        transform: translateX(100%);
     }
 }
 

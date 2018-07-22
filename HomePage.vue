@@ -13,6 +13,7 @@
 
 <script>
 import PostCard from "./PostCard"
+import bus from "./bus.js"
 import { isVisiblePost } from "./utils"
 
 export default {
@@ -20,6 +21,9 @@ export default {
     components: { PostCard },
     methods: {
         isVisiblePost: isVisiblePost
+    },
+    created: function() {
+        bus.$emit("toggleTocbarEvent", false)
     },
 }
 </script>
