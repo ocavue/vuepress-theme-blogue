@@ -37,7 +37,6 @@ export default {
     },
     created: function() {
         bus.$on("showSidebarEvent", this.showSidebar)
-        bus.$on("hideSidebarEvent", this.hideSidebar)
     },
     methods: {
         showSidebar: function() {
