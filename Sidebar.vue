@@ -28,6 +28,8 @@
 </template>
 
 <script>
+// reference: https://material.io/design/components/navigation-drawer.html
+
 import bus from "./bus.js"
 
 export default {
