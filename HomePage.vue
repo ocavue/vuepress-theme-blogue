@@ -1,7 +1,7 @@
 <template>
     <div>
         <PostCard
-            v-for="page in this.$site.pages"
+            v-for="page in pages"
             v-if="isVisiblePost(page)"
             :key="page.key"
             :page="page"
@@ -19,8 +19,21 @@ import { isVisiblePost } from "./utils"
 export default {
     name: "HomePage",
     components: { PostCard },
+    computed: {
+        pages() {
+            let pages = this.$site.pages
+            pages.sort((page1, page2) => {
+                if (page1.frontmatter.date < page2.frontmatter.date) {
+                    return 1
+                } else {
+                    return -1
+                }
+            })
+            return pages
+        },
+    },
     methods: {
-        isVisiblePost: isVisiblePost
+        isVisiblePost: isVisiblePost,
     },
     created: function() {
         bus.$emit("toggleTocbarEvent", false)
