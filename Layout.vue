@@ -60,7 +60,7 @@ export default {
 body {
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: $background-color;
     font-family: "Helvetica Neue", Helvetica, Arial, "华文细黑", "STXihei", "微软雅黑",
         "Microsoft YaHei", sans-serif;
 }

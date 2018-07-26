@@ -50,6 +50,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "./style/base";
+@import "./style/theme";
 @import "~@material/elevation/mdc-elevation.scss";
 
 .toc {
@@ -58,16 +59,20 @@ export default {
     position: fixed;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: #ffffff;
 
-    top: 0;
-    right: 0;
-    bottom: 0;
+    @media (max-width: 1199px) {
+        @include mdc-elevation(4);
+        background-color: #ffffff;
 
-    z-index: 3;
-    @include mdc-elevation(4);
+        top: 0;
+        right: 0;
+        bottom: 0;
 
+        z-index: 3;
+    }
     @media (min-width: 1200px) {
+        background-color: $background-color;
+
         top: 56px; // TODO: use variable
         right: 0;
         bottom: 0;
