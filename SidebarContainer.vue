@@ -60,8 +60,10 @@ export default {
 
 .transition-sidebar--left,
 .transition-sidebar--right {
+    // https://material.io/design/motion/speed.html#duration
+    // A nav drawer opens over 250ms, and closes over 200ms.
     &-leave-active {
-        transition: transform 150ms ease-in;
+        transition: transform 200ms ease-in;
     }
     &-enter-active {
         transition: transform 250ms ease-out;
