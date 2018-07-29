@@ -73,7 +73,7 @@ export default {
     @media (min-width: 1200px) {
         background-color: $background-color;
 
-        top: 56px; // TODO: use variable
+        top: $toobar-height;
         right: 0;
         bottom: 0;
 

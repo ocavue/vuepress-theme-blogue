@@ -77,7 +77,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 56px; // for fixed toolbar
+    padding-top: $toobar-height;
     padding-bottom: 32px;
 
     will-change: transform;
