@@ -16,16 +16,17 @@ Beacause of VuePress's limit, you have to add some extra configs in `.vuepress/c
 
 ```js
 const path = require("path")
+const sassConfig = {
+    includePaths: [
+        path.join(YOUR_PROJECT_PATH, "node_modules")
+    ]
+}
 
 module.exports = {
     ...
     theme: "blogue",
-    scss: {
-        includePaths: [path.join(YOUR_PROJECT_PATH, "node_modules")],
-    },
-    sass: {
-        includePaths: [path.join(YOUR_PROJECT_PATH, "node_modules")],
-    },
+    scss: sassConfig,
+    sass: sassConfig,
 }
 ```
 
