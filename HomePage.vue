@@ -2,7 +2,6 @@
     <div>
         <PostCard
             v-for="page in pages"
-            v-if="isVisiblePost(page)"
             :key="page.key"
             :page="page"
             :showContent="false"
@@ -21,7 +20,7 @@ export default {
     components: { PostCard },
     computed: {
         pages() {
-            let pages = this.$site.pages
+            let pages = this.$site.pages.filter(isVisiblePost)
             pages.sort((page1, page2) => {
                 if (page1.frontmatter.date < page2.frontmatter.date) {
                     return 1
