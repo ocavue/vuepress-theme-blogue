@@ -1,7 +1,7 @@
 <template>
     <header class="toolbar">
         <span @click="showSidebar" class="toolbar__button icon-menu"></span>
-        <router-link :to="'/'" class="toolbar__item">Ocavue's Blog</router-link>
+        <router-link :to="'/'" class="toolbar__item">{{ this.$site.title || "Project Blogue" }}</router-link>
         <span style="flex: 1;"></span>
         <span @click="toogleTocbar" class="toolbar__button icon-toc" v-if="showTocbarButtom"></span>
     </header>

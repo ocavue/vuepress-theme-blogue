@@ -45,18 +45,28 @@ export default {
     },
     methods: {
         initialize: function() {
-            this.title = this.page.title
             this.path = this.page.path
+            let isVisible = isVisiblePost(this.page)
+
+            if (isVisible && !this.page.title) {
+                throw new Error(
+                    `Post ${this.path} has not title. ` +
+                        `Please read https://github.com/ocavue/vuepress-theme-blogue/blob/master/README.md`,
+                )
+            }
+            this.title = this.page.title
+
             let date = this.page.frontmatter.date
             if (!(typeof date === "string" && date.length >= 10)) {
                 let msg = `date "${date}" is not valid`
-                if (isVisiblePost(this.page)) {
+                if (isVisible) {
                     throw new Error(msg)
                 } else {
                     console.warn(msg)
                 }
             } else {
-                // 1999-12-31T00:00:00.000Z => 1999-12-31
+                // YAML (or someone else?) will automatically turn "1999-12-31" into a ISO 8601 UTC format string "1999-12-31T00:00:00.000Z",
+                // so I have to turn it back
                 this.date = date.slice(0, 10)
             }
 

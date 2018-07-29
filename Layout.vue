@@ -28,6 +28,7 @@ import HomePage from "./HomePage.vue"
 import PostPage from "./PostPage.vue"
 
 import bus from "./bus.js"
+import { getConfig } from "./utils.js"
 
 export default {
     name: "blogue",
@@ -46,9 +47,13 @@ export default {
     },
     data: function() {
         return {
-            debug: false, // TODO make this configurable
             isTocbarOpen: false,
         }
+    },
+    computed: {
+        debug: function() {
+            return getConfig(this.$site)["debug"]
+        },
     },
 }
 </script>
