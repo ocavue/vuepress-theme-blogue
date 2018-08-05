@@ -5,9 +5,9 @@
                 class="toc__item"
                 v-for="(header, i) in page.headers"
                 :key="i"
+                :style="{'padding-left': `${Math.max(header.level - 2, 0) * 16 + 16}px`}"
                 :href="`#${header.slug}`"
             >
-                {{ "&nbsp; &nbsp; ".repeat(Math.max(header.level - 2, 0))}}
                 {{ header.title }}
             </a>
         </div>
@@ -93,10 +93,24 @@ export default {
         align-items: center;
         color: black;
         text-decoration: none;
-        font-size: 1rem;
-        padding-left: 16px;
-        padding-right: 16px;
+        font-size: 0.9rem;
         overflow-x: hidden;
+        overflow-y: hidden;
+
+        // padding-left: 16px; // padding-left will be added by js
+        padding-right: 16px;
+
+        &:hover {
+            background-color: #e2e2e2;
+        }
+
+        &:first-child {
+            margin-top: 16px;
+        }
+
+        &:last-child {
+            margin-bottom: 16px;
+        }
     }
 }
 </style>
