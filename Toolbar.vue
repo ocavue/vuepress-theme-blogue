@@ -38,7 +38,6 @@ export default {
     background-color: #ffffff;
     display: flex;
     justify-content: space-between;
-    padding-right: 32px;
     z-index: 1;
 
     &__button {
