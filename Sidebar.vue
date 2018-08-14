@@ -26,6 +26,7 @@
 // reference: https://material.io/design/components/navigation-drawer.html
 
 import bus from "./bus.js"
+import { getConfig } from "./utils.js"
 import SidebarContainer from "./SidebarContainer"
 
 export default {
@@ -34,8 +35,12 @@ export default {
     data: function() {
         return {
             show: false,
-            avatarURL: "https://ws1.sinaimg.cn/large/006tNc79gy1fom9qicqcej30e80e83zo.jpg", // https://unsplash.com/photos/5BHDL8JaxZc
         }
+    },
+    computed: {
+        avatarURL: function() {
+            return getConfig(this.$site)["avatarImage"]
+        },
     },
     created: function() {
         bus.$on("showSidebarEvent", this.showSidebar)
