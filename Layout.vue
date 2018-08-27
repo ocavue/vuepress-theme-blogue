@@ -58,6 +58,7 @@ export default {
 }
 </script>
 
+<style src="prismjs/themes/prism-tomorrow.css"></style>
 <style lang="scss">
 @import "./style/base";
 @import "./style/theme";
