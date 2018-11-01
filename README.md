@@ -6,6 +6,8 @@
 [![Version](https://img.shields.io/npm/v/vuepress-theme-blogue.svg)](https://www.npmjs.com/package/vuepress-theme-blogue)
 [![License](https://img.shields.io/npm/l/vuepress-theme-blogue.svg)](https://www.npmjs.com/package/vuepress-theme-blogue)
 
+*This project is under active development. Any feedback or contributions would be appreciated*
+
 ## Live demo
 
 https://ocavue.github.io/
