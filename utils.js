@@ -1,6 +1,6 @@
 function isVisiblePost(page) {
     // not posts
-    if (["/", "/about.html"].includes(page.path)) {
+    if (["/", "/about.html", "/resume.html"].includes(page.path)) {
         return false
     }
 
