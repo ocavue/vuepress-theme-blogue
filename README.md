@@ -40,6 +40,18 @@ module.exports = {
 }
 ```
 
+Replace `YOUR_PROJECT_PATH` with your project root path, for example:
+
+```js
+const sassConfig = {includePaths: [path.join(__dirname, "..", "..", "node_modules")]}
+```
+
+or just use the absolute path of `node_modules`:
+
+```js
+const sassConfig = {includePaths: ['/Users/me/Git/blog/node_modules']}
+```
+
 ## Project Configuration
 
 Edit `.vuepress/config.js` to configure this theme. Below is the default configuration.
