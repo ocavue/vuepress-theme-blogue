@@ -92,6 +92,7 @@ Your will need **README.md** and **about.md** in your docs directory. These two 
 
 ## TODO
 
+- [ ] Update vuepress to 1.0
 - [ ] Tags
 - [ ] Comments
 - [x] Configurable
