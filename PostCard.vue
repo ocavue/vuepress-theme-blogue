@@ -161,13 +161,13 @@ $offset: 72px; // offset depends on toolbar's height and the gap bwtween toolbar
 
     &-title {
         @include respond-to("s") {
-            font-size: 32px;
+            font-size: 24px;
         }
         @include respond-to("m") {
-            font-size: 40px;
+            font-size: 32px;
         }
         @include respond-to("l") {
-            font-size: 48px;
+            font-size: 40px;
         }
     }
 
