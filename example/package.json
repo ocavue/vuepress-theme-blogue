@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "vuepress": "^0.14.10",
-    "vuepress-theme-blogue": "^0.0.30"
+    "vuepress-theme-blogue": "^0.0.32"
   }
 }
