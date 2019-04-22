@@ -90,6 +90,10 @@ image: https://ws1.sinaimg.cn/large/006tNc79ly1fsxfr3d6eij31kw11x4qq.jpg
 
 Your will need **README.md** and **about.md** in your docs directory. These two posts will not be displayed on the home page.
 
+## Complete Example
+
+See https://github.com/ocavue/vuepress-theme-blogue/tree/master/example
+
 ## TODO
 
 - [ ] Update vuepress to 1.0

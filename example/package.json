@@ -1,0 +1,12 @@
+{
+  "name": "blogue-example",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vuepress dev archive",
+    "build": "vuepress build archive"
+  },
+  "dependencies": {
+    "vuepress": "^0.14.10",
+    "vuepress-theme-blogue": "^0.0.30"
+  }
+}
