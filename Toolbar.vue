@@ -24,14 +24,14 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 @import "./style/base";
 @import "./style/icon";
 @import "./style/theme";
 @import "./style/elevation";
 
 .toolbar {
-    @include mdc-elevation(4);
+    elevation(4);
 
     position: fixed;
     width: 100%;
@@ -47,13 +47,11 @@ export default {
         justify-content: center;
         align-items: center;
 
-        @include respond-to("s") {
-        }
-        @include respond-to("m") {
+        @media m {
             padding-left: 8px;
             padding-right: 8px;
         }
-        @include respond-to("l") {
+        @media l {
             padding-left: 8px;
             padding-right: 8px;
         }

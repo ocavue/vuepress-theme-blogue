@@ -1,10 +1,3 @@
-const path = require("path")
-const sassConfig = {
-    includePaths: [
-        path.join(__dirname, "..", "..", "node_modules")
-    ]
-}
-
 module.exports = {
     title: "Blogue Example",
     description: "Just playing around",
@@ -15,6 +8,4 @@ module.exports = {
     themeConfig: {
         debug: false,
     },
-    scss: sassConfig,
-    sass: sassConfig,
 }

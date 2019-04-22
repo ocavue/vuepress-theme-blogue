@@ -48,10 +48,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 @import "./style/base";
 @import "./style/theme";
-@import "~@material/elevation/mdc-elevation.scss";
+@import "./style/elevation";
 
 .toc {
     width: $tocbar-width;
@@ -61,7 +61,7 @@ export default {
     overflow-y: auto;
 
     @media (max-width: 1199px) {
-        @include mdc-elevation(4);
+        elevation(4);
         background-color: #ffffff;
 
         top: 0;

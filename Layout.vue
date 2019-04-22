@@ -59,16 +59,15 @@ export default {
 </script>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
-<style lang="scss">
-@import "./style/base";
-@import "./style/theme";
+<style lang="stylus">
+@import './style/base';
+@import './style/theme';
 
 body {
     margin: 0;
     padding: 0;
     background-color: $background-color;
-    font-family: "Helvetica Neue", Helvetica, Arial, "华文细黑", "STXihei", "微软雅黑",
-        "Microsoft YaHei", sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, '华文细黑', 'STXihei', '微软雅黑', 'Microsoft YaHei', sans-serif;
 }
 
 #root {
@@ -98,15 +97,17 @@ body {
 }
 
 .app__main-content {
-    @include respond-to("s") {
+    @media s {
         margin: 8px;
         width: 100%;
     }
-    @include respond-to("m") {
+
+    @media m {
         width: $break-small - 24px * 2;
         margin-top: 32px;
     }
-    @include respond-to("l") {
+
+    @media l {
         width: 760px;
         margin-top: 64px;
     }
@@ -120,7 +121,6 @@ body {
     line-height: 2rem;
 
     &-link {
-        // background-color: rgba(0, 0, 0, 0.5);
         color: #c4c4c4;
         padding-top: 0.4rem;
         padding-bottom: 0.4rem;
@@ -137,6 +137,5 @@ body {
     border-top-width: 1px;
     margin: 8px;
     overflow-x: scroll;
-    // width: 100%;
 }
 </style>

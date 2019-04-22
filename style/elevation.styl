@@ -1,0 +1,41 @@
+@import './base';
+
+// https://stackoverflow.com/a/35051574
+elevation(dp)
+  if dp == 0
+    box-shadow none
+  else
+    dp = unit(dp, px)
+    blur = (dp == 1 ? 3 : dp * 2)
+    amba = (dp + 10 + (dp / 9.38)) / 100
+    diry = (dp < 10 ? (dp % 2 == 0 ? dp - ((dp / 2) - 1) : (dp - ((dp - 1) / 2))) : dp - 4)
+    dira = (24 - (round(dp / 10))) / 100
+    box-shadow 0px dp blur rgba(0, 0, 0, amba), 0px diry blur rgba(0, 0, 0, dira)
+
+elevation-transition()
+  transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1)
+
+
+elevation-paper()
+    background-color: #ffffff;
+
+    @media s {
+        elevation(2)
+        &:hover {
+            elevation(2)
+        }
+    }
+    @media m {
+        elevation(4)
+        elevation-transition()
+        &:hover {
+            elevation(24)
+        }
+    }
+    @media l {
+        elevation(4)
+        elevation-transition()
+        &:hover {
+            elevation(24)
+        }
+    }

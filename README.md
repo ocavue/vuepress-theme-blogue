@@ -22,36 +22,6 @@ yarn add vuepress-theme-blogue
 npm install vuepress-theme-blogue
 ```
 
-Because of VuePress's limit, you have to add some extra configs in `.vuepress/config.js` to make this theme work. If this file does not exist, you can follow [this link](https://vuepress.vuejs.org/guide/basic-config.html#config-file) to create it.
-
-```js
-const path = require("path")
-const sassConfig = {
-    includePaths: [
-        path.join(YOUR_PROJECT_PATH, "node_modules")
-    ]
-}
-
-module.exports = {
-    ...
-    theme: "blogue",
-    scss: sassConfig,
-    sass: sassConfig,
-}
-```
-
-Replace `YOUR_PROJECT_PATH` with your project root path, for example:
-
-```js
-const sassConfig = {includePaths: [path.join(__dirname, "..", "..", "node_modules")]}
-```
-
-or just use the absolute path of `node_modules`:
-
-```js
-const sassConfig = {includePaths: ['/Users/me/Git/blog/node_modules']}
-```
-
 ## Project Configuration
 
 Edit `.vuepress/config.js` to configure this theme. Below is the default configuration.

@@ -82,15 +82,14 @@ export default {
 }
 </script>
 
-
-<style lang="scss">
+<style lang="stylus">
 // https://stackoverflow.com/q/4086107
 // https://stackoverflow.com/a/11842865
 
-$offset: 72px; // offset depends on toolbar's height and the gap bwtween toolbar and header
+$offset = 72px; // offset depends on toolbar's height and the gap bwtween toolbar and header
 
 .post__content h1 {
-    margin-top: -$offset + 24px !important; // Use `!important` to cover github-markdown-css's css
+    margin-top: -1 * $offset + 24px !important; // Use `!important` to cover github-markdown-css's css
     padding-top: $offset;
 }
 
@@ -99,29 +98,31 @@ $offset: 72px; // offset depends on toolbar's height and the gap bwtween toolbar
 .post__content h4,
 .post__content h5,
 .post__content h6 {
-    margin-top: -$offset + 8px !important;
+    margin-top: -1 * $offset + 8px !important;
     padding-top: $offset;
 }
 </style>
 
-<style lang="scss" scoped>
-@import "~github-markdown-css/github-markdown.css";
-@import "./style/elevation";
-@import "./style/base";
-@import "./style/theme";
+<style lang="stylus" scoped>
+@import '~github-markdown-css/github-markdown.css';
+@import './style/elevation';
+@import './style/base';
+@import './style/theme';
 
 .post {
-    @include elevation_paper;
+    elevation-paper();
     border-radius: 2px;
     overflow: hidden;
 
-    @include respond-to("s") {
+    @media s {
         margin-bottom: 8px;
     }
-    @include respond-to("m") {
+
+    @media m {
         margin-bottom: 32px;
     }
-    @include respond-to("l") {
+
+    @media l {
         margin-bottom: 32px;
     }
 }
@@ -131,20 +132,21 @@ $offset: 72px; // offset depends on toolbar's height and the gap bwtween toolbar
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: stretch;
     text-decoration: none;
 
-    @include respond-to("s") {
+    @media s {
         height: 240px;
     }
-    @include respond-to("m") {
+
+    @media m {
         height: 280px;
     }
-    @include respond-to("l") {
+
+    @media l {
         height: 360px;
     }
 
@@ -160,13 +162,15 @@ $offset: 72px; // offset depends on toolbar's height and the gap bwtween toolbar
     }
 
     &-title {
-        @include respond-to("s") {
+        @media s {
             font-size: 24px;
         }
-        @include respond-to("m") {
+
+        @media m {
             font-size: 32px;
         }
-        @include respond-to("l") {
+
+        @media l {
             font-size: 40px;
         }
     }
@@ -184,13 +188,15 @@ $offset: 72px; // offset depends on toolbar's height and the gap bwtween toolbar
 }
 
 .post__content {
-    @include respond-to("s") {
+    @media s {
         padding: 16px;
     }
-    @include respond-to("m") {
+
+    @media m {
         padding: 32px;
     }
-    @include respond-to("l") {
+
+    @media l {
         padding: 32px;
     }
 }
