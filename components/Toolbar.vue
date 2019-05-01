@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import bus from "./bus.js"
+import { bus } from "../utils"
 
 export default {
     name: "Toolbar",
@@ -25,10 +25,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import "./style/base";
-@import "./style/icon";
-@import "./style/theme";
-@import "./style/elevation";
+@import "../styles/base";
+@import "../styles/icon";
+@import "../styles/theme";
+@import "../styles/elevation";
 
 .toolbar {
     elevation(4);

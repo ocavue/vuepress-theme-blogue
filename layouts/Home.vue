@@ -11,12 +11,11 @@
 </template>
 
 <script>
-import PostCard from "./PostCard"
-import bus from "./bus.js"
-import { isVisiblePost } from "./utils"
+import PostCard from "../components/PostCard"
+import { bus, isVisiblePost } from "../utils"
 
 export default {
-    name: "HomePage",
+    name: "Home",
     components: { PostCard },
     computed: {
         pages() {
@@ -40,5 +39,3 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-</style>

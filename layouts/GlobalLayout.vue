@@ -1,11 +1,11 @@
+
 <template>
     <div id="root">
         <Sidebar/>
-        <Tocbar :page="this.$page" :allow="!isHomePage()"/>
-        <Toolbar :showTocbarButtom="!isHomePage()"/>
+        <Tocbar :page="this.$page" :allow="this.showTocbar"/>
+        <Toolbar :showTocbarButtom="this.showTocbar"/>
         <main :class="{'app__main': true, 'app__main--toc-open': isTocbarOpen}">
-            <HomePage class="app__main-content" v-if="isHomePage()" />
-            <PostPage class="app__main-content" v-else />
+            <component :is="layout" />
         </main>
         <footer class="app__footer">
             Power by <a class="app__footer-link" href="https://github.com/vuejs/vuepress">VuePress</a>
@@ -16,23 +16,30 @@
             <pre>debug info:</pre>
             <pre>this.$site: {{ JSON.stringify(this.$site, null, 4)}}</pre>
             <pre>this.$page: {{ JSON.stringify(this.$page, null, 4)}}</pre>
+            <pre>this.$tag:  {{ JSON.stringify(this.$tag,  null, 4)}}</pre>
+            <pre>this.$tags: {{ JSON.stringify(this.$tags, null, 4)}}</pre>
         </div>
     </div>
 </template>
 
 <script>
-import Toolbar from "./Toolbar"
-import Sidebar from "./Sidebar"
-import Tocbar from "./Tocbar"
-import HomePage from "./HomePage.vue"
-import PostPage from "./PostPage.vue"
+import Toolbar from "../components/Toolbar"
+import Sidebar from "../components/Sidebar"
+import Tocbar from "../components/Tocbar"
 
-import bus from "./bus.js"
-import { getConfig } from "./utils.js"
+import HomePage from "../components/HomePage"
+
+import { bus, getConfig } from "../utils"
 
 export default {
-    name: "blogue",
-    components: { Toolbar, Sidebar, Tocbar, HomePage, PostPage },
+    name: "Container",
+    components: { Toolbar, Sidebar, Tocbar, HomePage },
+    props: {
+        showTocbar: {
+            type: Boolean,
+            default: false,
+        }
+    },
     created: function() {
         bus.$on("toggleTocbarEvent", to => {
             if (to !== undefined) {
@@ -41,9 +48,15 @@ export default {
         })
     },
     methods: {
-        isHomePage: function() {
-            return this.$page.path === this.$site.base
-        },
+        // isHomePage: function() {
+        //     let result = this.$page.path === this.$site.base
+        //     console.log('isHomePage:', result)
+        //     return result
+        // },
+        // isTagsPage: function() {
+        //     console.log('this.$page.path:', this.$page.path)
+        //     return this.$page.path === "/tags/"
+        // }
     },
     data: function() {
         return {
@@ -54,14 +67,20 @@ export default {
         debug: function() {
             return getConfig(this.$site)["debug"]
         },
+        layout() {
+            console.debug(`path: ${this.$page.path}, layout: ${this.$frontmatter.layout}`)
+            if (!this.$page.path) return "NotFound"
+            if (this.$frontmatter.layout) return this.$frontmatter.layout
+            return "Layout"
+        },
     },
 }
 </script>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style lang="stylus">
-@import './style/base';
-@import './style/theme';
+@import '../styles/base';
+@import '../styles/theme';
 
 body {
     margin: 0;
@@ -96,7 +115,7 @@ body {
     }
 }
 
-.app__main-content {
+.app__main > * {
     @media s {
         margin: 8px;
         width: 100%;

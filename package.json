@@ -1,10 +1,13 @@
 {
     "name": "vuepress-theme-blogue",
     "version": "0.0.32",
+    "main": "index.js",
     "repository": "https://github.com/ocavue/vuepress-theme-blogue.git",
     "author": "ocavue <ocavue#gmail.com>",
     "license": "MIT",
     "dependencies": {
-        "github-markdown-css": "^3.0.1"
+        "@vuepress/plugin-blog": "^1.0.0-alpha.47",
+        "github-markdown-css": "^3.0.1",
+        "vuepress": "^1.0.0-alpha.47"
     }
 }

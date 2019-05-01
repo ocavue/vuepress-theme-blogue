@@ -17,6 +17,10 @@
                     <span class="sidebar__nav-item-icon icon-face"></span>
                     <span class="sidebar__nav-item-content">ABOUT</span>
                 </router-link>
+                <router-link class="sidebar__nav-item" :to="'/tag/'">
+                    <span class="sidebar__nav-item-icon icon-tag"></span>
+                    <span class="sidebar__nav-item-content">TAGS</span>
+                </router-link>
             </nav>
         </div>
     </SidebarContainer>
@@ -25,8 +29,7 @@
 <script>
 // reference: https://material.io/design/components/navigation-drawer.html
 
-import bus from "./bus.js"
-import { getConfig } from "./utils.js"
+import { bus, getConfig } from "../utils"
 import SidebarContainer from "./SidebarContainer"
 
 export default {
@@ -57,7 +60,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import "./style/icon";
+@import "../styles/icon";
 
 .sidebar {
     width: 300px;
