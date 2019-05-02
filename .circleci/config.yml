@@ -11,7 +11,6 @@ jobs:
           node -v
           which yarn
           yarn -v
-          git status
       - run: |
           yarn link
           cd example
