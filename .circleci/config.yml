@@ -12,4 +12,5 @@ jobs:
       - run: cd example
       - run: yarn link "vuepress-theme-blogue"
       - run: yarn install
+      - run: pwd && ls -a && cat package.json
       - run: yarn run build
