@@ -57,6 +57,7 @@ image: https://ws1.sinaimg.cn/large/006tNc79ly1fsxfr3d6eij31kw11x4qq.jpg
 - **`title`** (required): Your post's title. vuepress-theme-blogue will NOT find H1 title inside your markdown file.
 - **`date`** (required): Your post's date. Your need to use **YYYY-MM-DD** format. vuepress-theme-blogue use post's date to sort, so this field is required.
 - **`image`** (optional): Your post's cover image URL.
+- **`tags`** (optional)
 
 Your will need **README.md** and **about.md** in your docs directory. These two posts will not be displayed on the home page.
 
