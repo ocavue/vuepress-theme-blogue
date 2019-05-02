@@ -9,8 +9,9 @@ jobs:
       - run: which node && node -v
       - run: which yarn && yarn -v
       - run: yarn link
-      - run: cd example
-      - run: yarn link "vuepress-theme-blogue"
-      - run: yarn install
-      - run: pwd && ls -a && cat package.json
-      - run: yarn run build
+      - run: |
+          cd example
+          yarn link "vuepress-theme-blogue"
+          yarn install
+          pwd && ls -a && cat package.json
+          yarn run build
