@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: node:10-alpine
+    steps:
+      - checkout
+      - run: |
+          uname -a
+          which node
+          node -v
+          which yarn
+          yarn -v
+      - run: |
+          yarn link
+          cd example
+          yarn link "vuepress-theme-blogue"
+          yarn install
+          yarn run build
