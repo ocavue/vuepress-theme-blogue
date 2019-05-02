@@ -2,8 +2,8 @@
 <template>
     <div id="root">
         <Sidebar/>
-        <Tocbar :page="this.$page" :allow="isHomePage()"/>
-        <Toolbar :showTocbarButtom="isHomePage()"/>
+        <Tocbar :page="this.$page" :allow="!isHomePage()"/>
+        <Toolbar :showTocbarButtom="!isHomePage()"/>
         <main :class="{'app__main': true, 'app__main--toc-open': isTocbarOpen}">
             <component :is="layout" />
         </main>
