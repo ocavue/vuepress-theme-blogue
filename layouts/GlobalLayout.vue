@@ -2,8 +2,8 @@
 <template>
     <div id="root">
         <Sidebar/>
-        <Tocbar :page="this.$page" :allow="this.showTocbar"/>
-        <Toolbar :showTocbarButtom="this.showTocbar"/>
+        <Tocbar :page="this.$page" :allow="isHomePage()"/>
+        <Toolbar :showTocbarButtom="isHomePage()"/>
         <main :class="{'app__main': true, 'app__main--toc-open': isTocbarOpen}">
             <component :is="layout" />
         </main>
@@ -27,19 +27,11 @@ import Toolbar from "../components/Toolbar"
 import Sidebar from "../components/Sidebar"
 import Tocbar from "../components/Tocbar"
 
-import HomePage from "../components/HomePage"
-
 import { bus, getConfig } from "../utils"
 
 export default {
     name: "Container",
-    components: { Toolbar, Sidebar, Tocbar, HomePage },
-    props: {
-        showTocbar: {
-            type: Boolean,
-            default: false,
-        }
-    },
+    components: { Toolbar, Sidebar, Tocbar },
     created: function() {
         bus.$on("toggleTocbarEvent", to => {
             if (to !== undefined) {
@@ -48,15 +40,9 @@ export default {
         })
     },
     methods: {
-        // isHomePage: function() {
-        //     let result = this.$page.path === this.$site.base
-        //     console.log('isHomePage:', result)
-        //     return result
-        // },
-        // isTagsPage: function() {
-        //     console.log('this.$page.path:', this.$page.path)
-        //     return this.$page.path === "/tags/"
-        // }
+        isHomePage: function() {
+            return this.$page.path === this.$site.base
+        },
     },
     data: function() {
         return {
@@ -68,10 +54,8 @@ export default {
             return getConfig(this.$site)["debug"]
         },
         layout() {
-            console.debug(`path: ${this.$page.path}, layout: ${this.$frontmatter.layout}`)
             if (!this.$page.path) return "NotFound"
-            if (this.$frontmatter.layout) return this.$frontmatter.layout
-            return "Layout"
+            return this.$frontmatter.layout || "Layout"
         },
     },
 }
