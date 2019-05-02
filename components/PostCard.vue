@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { isVisiblePost } from "./utils"
+import { isVisiblePost } from "../utils"
 
 export default {
     name: "PostCard",
@@ -50,7 +50,7 @@ export default {
 
             if (isVisible && !this.page.title) {
                 throw new Error(
-                    `Post ${this.path} has not title. ` +
+                    `Post ${this.path} has not title. ` +
                         `Please read https://github.com/ocavue/vuepress-theme-blogue/blob/master/README.md`,
                 )
             }
@@ -104,10 +104,10 @@ $offset = 72px; // offset depends on toolbar's height and the gap bwtween toolba
 </style>
 
 <style lang="stylus" scoped>
-@import '~github-markdown-css/github-markdown.css';
-@import './style/elevation';
-@import './style/base';
-@import './style/theme';
+@import "~github-markdown-css/github-markdown.css";
+@import "../styles/elevation";
+@import "../styles/base";
+@import "../styles/theme";
 
 .post {
     elevation-paper();

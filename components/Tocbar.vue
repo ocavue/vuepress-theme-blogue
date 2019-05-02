@@ -17,7 +17,7 @@
 <script>
 // reference: https://material.io/design/components/sheets-side.html
 
-import bus from "./bus.js"
+import { bus } from "../utils"
 import SidebarContainer from "./SidebarContainer"
 
 export default {
@@ -49,9 +49,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import "./style/base";
-@import "./style/theme";
-@import "./style/elevation";
+@import "../styles/base";
+@import "../styles/theme";
+@import "../styles/elevation";
 
 .toc {
     width: $tocbar-width;

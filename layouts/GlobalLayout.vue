@@ -1,11 +1,11 @@
+
 <template>
     <div id="root">
         <Sidebar/>
         <Tocbar :page="this.$page" :allow="!isHomePage()"/>
         <Toolbar :showTocbarButtom="!isHomePage()"/>
         <main :class="{'app__main': true, 'app__main--toc-open': isTocbarOpen}">
-            <HomePage class="app__main-content" v-if="isHomePage()" />
-            <PostPage class="app__main-content" v-else />
+            <component :is="layout" />
         </main>
         <footer class="app__footer">
             Power by <a class="app__footer-link" href="https://github.com/vuejs/vuepress">VuePress</a>
@@ -16,23 +16,22 @@
             <pre>debug info:</pre>
             <pre>this.$site: {{ JSON.stringify(this.$site, null, 4)}}</pre>
             <pre>this.$page: {{ JSON.stringify(this.$page, null, 4)}}</pre>
+            <pre>this.$tag:  {{ JSON.stringify(this.$tag,  null, 4)}}</pre>
+            <pre>this.$tags: {{ JSON.stringify(this.$tags, null, 4)}}</pre>
         </div>
     </div>
 </template>
 
 <script>
-import Toolbar from "./Toolbar"
-import Sidebar from "./Sidebar"
-import Tocbar from "./Tocbar"
-import HomePage from "./HomePage.vue"
-import PostPage from "./PostPage.vue"
+import Toolbar from "../components/Toolbar"
+import Sidebar from "../components/Sidebar"
+import Tocbar from "../components/Tocbar"
 
-import bus from "./bus.js"
-import { getConfig } from "./utils.js"
+import { bus, getConfig } from "../utils"
 
 export default {
-    name: "blogue",
-    components: { Toolbar, Sidebar, Tocbar, HomePage, PostPage },
+    name: "Container",
+    components: { Toolbar, Sidebar, Tocbar },
     created: function() {
         bus.$on("toggleTocbarEvent", to => {
             if (to !== undefined) {
@@ -54,14 +53,18 @@ export default {
         debug: function() {
             return getConfig(this.$site)["debug"]
         },
+        layout() {
+            if (!this.$page.path) return "NotFound"
+            return this.$frontmatter.layout || "Layout"
+        },
     },
 }
 </script>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style lang="stylus">
-@import './style/base';
-@import './style/theme';
+@import '../styles/base';
+@import '../styles/theme';
 
 body {
     margin: 0;
@@ -96,7 +99,7 @@ body {
     }
 }
 
-.app__main-content {
+.app__main > * {
     @media s {
         margin: 8px;
         width: 100%;

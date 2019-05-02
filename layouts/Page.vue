@@ -3,13 +3,11 @@
 </template>
 
 <script>
-import PostCard from "./PostCard"
+import PostCard from "../components/PostCard"
 
 export default {
-    name: "PostPage",
+    name: "Page",
     components: { PostCard },
 }
 </script>
 
-<style lang="stylus" scoped>
-</style>

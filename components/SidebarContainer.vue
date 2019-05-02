@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import bus from "./bus.js"
+import { bus } from "../utils"
 
 export default {
-    name: "Sidebar",
+    name: "SidebarContainer",
     props: {
         show: {
             type: Boolean,
@@ -36,8 +36,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import "./style/icon";
-@import "./style/base";
+@import "../styles/icon";
+@import "../styles/base";
 
 .cover {
     position: fixed;
