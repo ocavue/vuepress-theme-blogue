@@ -4,6 +4,7 @@ jobs:
     docker:
       - image: node:10-alpine
     steps:
+      - checkout
       - run: pwd && ls -a
       - run: which node && node -v
       - run: which yarn && yarn -v
@@ -12,4 +13,3 @@ jobs:
       - run: yarn link "vuepress-theme-blogue"
       - run: yarn install
       - run: yarn run build
-
