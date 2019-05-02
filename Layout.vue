@@ -4,7 +4,7 @@
         <Tocbar :page="this.$page" :allow="!isHomePage()"/>
         <Toolbar :showTocbarButtom="!isHomePage()"/>
         <main :class="{'app__main': true, 'app__main--toc-open': isTocbarOpen}">
-            <HomePage class="app__main-content" v-if="abcd()" />
+            <HomePage class="app__main-content" v-if="isHomePage()" />
             <PostPage class="app__main-content" v-else />
         </main>
         <footer class="app__footer">
