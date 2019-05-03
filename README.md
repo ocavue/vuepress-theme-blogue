@@ -68,7 +68,7 @@ See https://github.com/ocavue/vuepress-theme-blogue/tree/master/example
 ## TODO
 
 - [x] Update vuepress to 1.0
-- [ ] Tags
+- [x] Tags
 - [ ] Comments
 - [x] Configurable
 
