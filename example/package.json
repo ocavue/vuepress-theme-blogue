@@ -2,8 +2,8 @@
   "name": "blogue-example",
   "version": "0.0.1",
   "scripts": {
-    "dev": "vuepress dev archive",
-    "build": "vuepress build archive"
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
   },
   "dependencies": {
     "vuepress": "^1.0.0-alpha.47",
