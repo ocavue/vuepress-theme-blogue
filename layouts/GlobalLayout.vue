@@ -55,7 +55,7 @@ export default {
         },
         layout() {
             if (!this.$page.path) return "NotFound"
-            return this.$frontmatter.layout || "Layout"
+            return this.$frontmatter.layout || "Page"
         },
     },
 }
