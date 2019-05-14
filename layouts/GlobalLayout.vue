@@ -8,9 +8,7 @@
             <component :is="layout" />
         </main>
         <footer class="app__footer">
-            Power by <a class="app__footer-link" href="https://github.com/vuejs/vuepress">VuePress</a>
-            <br>
-            Theme <a class="app__footer-link" href="https://github.com/ocavue/vuepress-theme-blogue">Blogue</a>
+            Power by <a class="app__footer-link" href="https://github.com/ocavue/vuepress-theme-blogue">Blogue</a>
         </footer>
         <div class="app__debug" v-if="debug">
             <pre>debug info:</pre>
@@ -117,14 +115,14 @@ body {
 }
 
 .app__footer {
-    color: #c4c4c4;
+    color: #8a8a8a;
     text-align: center;
     padding-bottom: 48px;
     font-size: 1rem;
     line-height: 2rem;
 
     &-link {
-        color: #c4c4c4;
+        color: #8a8a8a;
         padding-top: 0.4rem;
         padding-bottom: 0.4rem;
 
