@@ -101,6 +101,11 @@ $offset = 72px; // offset depends on toolbar's height and the gap bwtween toolba
     margin-top: -1 * $offset + 8px !important;
     padding-top: $offset;
 }
+
+// Cover github-markdown-css's css
+.markdown-body pre {
+    background-color: #2d2d2d !important;
+}
 </style>
 
 <style lang="stylus" scoped>
