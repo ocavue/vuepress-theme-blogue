@@ -61,6 +61,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import "../styles/icon";
+@import "../styles/base";
 
 .sidebar {
     width: 300px;
@@ -69,7 +70,7 @@ export default {
     overflow-x: hidden;
     overflow-y: auto;
     background-color: #ffffff;
-    z-index: 3;
+    z-index: $z-index-sidebar;
 
     display: flex;
     flex-direction: column;

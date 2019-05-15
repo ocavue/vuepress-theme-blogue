@@ -38,7 +38,7 @@ export default {
     background-color: #ffffff;
     display: flex;
     justify-content: space-between;
-    z-index: 1;
+    z-index: $z-index-toolbar;
 
     &__button {
         height: $toobar-height;

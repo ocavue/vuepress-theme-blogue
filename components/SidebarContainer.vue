@@ -48,11 +48,11 @@ export default {
     background-color: rgba(0, 0, 0, 0.7);
     cursor: pointer;
 
-    z-index: 2;
+    z-index: $z-index-cover;
     will-change: opacity;
 
     &--right {
-        @media (min-width: 1200px) {
+        @media $large {
             display: none;
         }
     }
