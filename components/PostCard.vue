@@ -119,15 +119,11 @@ $offset = 72px; // offset depends on toolbar's height and the gap bwtween toolba
     border-radius: 2px;
     overflow: hidden;
 
-    @media s {
-        margin-bottom: 8px;
+    @media $small {
+        margin-bottom: 16px;
     }
 
-    @media m {
-        margin-bottom: 32px;
-    }
-
-    @media l {
+    @media $large {
         margin-bottom: 32px;
     }
 }
@@ -143,16 +139,13 @@ $offset = 72px; // offset depends on toolbar's height and the gap bwtween toolba
     align-items: stretch;
     text-decoration: none;
 
-    @media s {
-        height: 240px;
+    @media $small {
+        height: 50vw;
     }
 
-    @media m {
-        height: 280px;
-    }
-
-    @media l {
-        height: 360px;
+    @media $large {
+        height: 'calc(0.4 * (100vw - %s))' % $tocbar-width;
+        max-height: 0.4 * $max-main-width;
     }
 
     &--nolink {
@@ -167,16 +160,22 @@ $offset = 72px; // offset depends on toolbar's height and the gap bwtween toolba
     }
 
     &-title {
-        @media s {
-            font-size: 24px;
-        }
+        font-size: 40px;  // fallback value
 
-        @media m {
-            font-size: 32px;
+        $font-size-template = 'calc(8px + 0.04 * (%s))';
+        @media $small {
+            $main-width = 100vw;
+            font-size: $font-size-template % $main-width;
         }
-
-        @media l {
-            font-size: 40px;
+        @media $large {
+            @media (max-width: $max-main-width + $tocbar-width) {
+                $main-width = '100vw - %s' % $tocbar-width;
+                font-size: $font-size-template % $main-width;
+            }
+            @media (min-width: $max-main-width + $tocbar-width + 1px) {
+                $main-width = $max-main-width;
+                font-size: $font-size-template % $main-width;
+            }
         }
     }
 

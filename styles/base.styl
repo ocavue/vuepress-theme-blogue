@@ -1,8 +1,27 @@
 $break-small = 640px
 $break-large = 960px
 
-$tocbar-width = 320px
-$toobar-height = 56px
+$tocbar-width = 280px
+$toobar-height = 56px  // TODO: typo error
+
+// those two widths include padding
+$max-main-width = 1024px
+$min-main-width = 720px
+
+$break = $min-main-width + $tocbar-width;
+
+$small = "all and (max-width: %s)" % $break
+$large = "all and (min-width: %s)" % ($break + 1px)
+
+/*
+$z-index-tocbar-large < $z-index-main < $z-index-toolbar < $z-index-cover < $z-index-sidebar = $z-index-tocbar-small
+*/
+$z-index-main         = 2
+$z-index-toolbar      = 3
+$z-index-cover        = 4
+$z-index-sidebar      = 5
+$z-index-tocbar-small = 5
+$z-index-tocbar-large = 1
 
 s = "all and (max-width: $break-small)"
 m = "all and (min-width: $break-small) and (max-width: $break-large)"

@@ -60,7 +60,7 @@ export default {
     overflow-x: hidden;
     overflow-y: auto;
 
-    @media (max-width: 1199px) {
+    @media $small {
         elevation(4);
         background-color: #ffffff;
 
@@ -68,16 +68,16 @@ export default {
         right: 0;
         bottom: 0;
 
-        z-index: 3;
+        z-index: $z-index-tocbar-small;
     }
-    @media (min-width: 1200px) {
+    @media $large {
         background-color: $background-color;
 
         top: $toobar-height;
         right: 0;
         bottom: 0;
 
-        z-index: 1;
+        z-index: $z-index-tocbar-large;
     }
 
     will-change: transform;
@@ -105,11 +105,11 @@ export default {
         }
 
         &:first-child {
-            margin-top: 16px;
+            margin-top: 64px;  // keep that the first-child and PostCard has same upper edge height
         }
 
         &:last-child {
-            margin-bottom: 16px;
+            margin-bottom: 48px;
         }
     }
 }

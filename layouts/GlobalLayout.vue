@@ -76,41 +76,39 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
 }
 
 .app__main {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: $toobar-height;
-    padding-bottom: 32px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin-top: $toobar-height;
+    margin-bottom: 32px;
+    box-sizing: border-box;
+    z-index: $z-index-main;
 
-    will-change: transform;
-    transition: transform 300ms;
-    transform: none;
-
-    @media (min-width: 1200px) {
-        &--toc-open {
-            transform: translateX(-0.5 * $tocbar-width);
-        }
-    }
-}
-
-.app__main > * {
-    @media s {
-        margin: 8px;
+    @media $small {
+        padding: 16px;
         width: 100%;
     }
 
-    @media m {
-        width: $break-small - 24px * 2;
-        margin-top: 32px;
-    }
+    @media $large {
+        width: 'calc(100vw - %s)' % $tocbar-width;
+        max-width: $max-main-width;
+        padding-right: 32px;
+        padding-left: 32px;
+        padding-top: 64px;
+        will-change: transform;
+        transition: transform 300ms ease;
+        transform: translateX(0px);
 
-    @media l {
-        width: 760px;
-        margin-top: 64px;
+        @media (max-width: $max-main-width + 2 * $tocbar-width) {
+            &--toc-open {
+                transform: 'translateX(calc(((100vw - 100%) / 2 - %s)))' % $tocbar-width;
+            }
+        }
     }
 }
 
