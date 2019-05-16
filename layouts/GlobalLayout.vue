@@ -84,7 +84,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    margin-top: $toobar-height;
+    margin-top: $toolbar-height;
     margin-bottom: 32px;
     box-sizing: border-box;
     z-index: $z-index-main;

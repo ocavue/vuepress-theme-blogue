@@ -73,7 +73,7 @@ export default {
     @media $large {
         background-color: $background-color;
 
-        top: $toobar-height;
+        top: $toolbar-height;
         right: 0;
         bottom: 0;
 
