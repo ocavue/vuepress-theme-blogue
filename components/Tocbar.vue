@@ -1,49 +1,27 @@
 <template>
-    <SidebarContainer :show="show" :position="'right'" @hideEvent="hide">
-        <div class="toc" v-show="show">
-            <a
-                class="toc__item"
-                v-for="(header, i) in page.headers"
-                :key="i"
-                :style="{'padding-left': `${Math.max(header.level - 2, 0) * 16 + 16}px`}"
-                :href="`#${header.slug}`"
-            >
-                {{ header.title }}
-            </a>
-        </div>
-    </SidebarContainer>
+    <div class="toc">
+        <a
+            class="toc__item"
+            v-for="(header, i) in page.headers"
+            :key="i"
+            :style="{'padding-left': `${Math.max(header.level - 2, 0) * 16 + 16}px`}"
+            :href="`#${header.slug}`"
+        >
+            {{ header.title }}
+        </a>
+    </div>
 </template>
 
 <script>
 // reference: https://material.io/design/components/sheets-side.html
 
-import { bus } from "../utils"
-import SidebarContainer from "./SidebarContainer"
-
 export default {
     name: "Tocbar",
     props: ["allow", "page"],
-    components: { SidebarContainer },
     data: function() {
         return {
             show: false,
         }
-    },
-    created: function() {
-        bus.$on("toggleTocbarEvent", to => {
-            if (to === true) {
-                this.show = this.allow
-            } else if (to === false) {
-                this.show = false
-            } else {
-                bus.$emit("toggleTocbarEvent", this.allow && !this.show)
-            }
-        })
-    },
-    methods: {
-        hide: function() {
-            bus.$emit("toggleTocbarEvent", false)
-        },
     },
 }
 </script>
@@ -80,8 +58,6 @@ export default {
         z-index: $z-index-tocbar-large;
     }
 
-    will-change: transform;
-
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -112,6 +88,18 @@ export default {
             margin-bottom: 48px;
         }
     }
+}
+
+.toc {
+    will-change: transform;
+    transition: transform 300ms ease, visibility 300ms ease;
+    transform: translateX(100%)
+    visibility: hidden;
+}
+
+.root--show-tocbar > .toc {
+    transform: translateX(0)
+    visibility: visible;
 }
 </style>
 
