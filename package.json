@@ -1,6 +1,6 @@
 {
     "name": "vuepress-theme-blogue",
-    "version": "0.1.3",
+    "version": "0.2.0",
     "main": "index.js",
     "repository": "https://github.com/ocavue/vuepress-theme-blogue.git",
     "author": "ocavue <ocavue#gmail.com>",
