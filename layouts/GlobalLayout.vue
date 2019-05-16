@@ -66,6 +66,7 @@ export default {
             return getConfig(this.$site)["debug"]
         },
         layout() {
+            this.showTocbar = this.$page.path && this.$frontmatter.layout == "Page"
             if (!this.$page.path) return "NotFound"
             return this.$frontmatter.layout || "Page"
         },
