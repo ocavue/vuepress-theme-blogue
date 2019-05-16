@@ -121,8 +121,10 @@ body {
 }
 
 .root--show-tocbar .app__main {
-    @media $large and (max-width: $max-main-width + 2 * $tocbar-width) {
-        transform: 'translateX(calc(((100vw - 100%) / 2 - %s)))' % $tocbar-width;
+    @media $large {
+        @media (max-width: $max-main-width + 2 * $tocbar-width) {
+            transform: 'translateX(calc(((100vw - 100%) / 2 - %s)))' % $tocbar-width;
+        }
     }
 }
 
