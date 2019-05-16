@@ -47,11 +47,11 @@ export default {
         justify-content: center;
         align-items: center;
 
-        @media m {
-            padding-left: 8px;
-            padding-right: 8px;
+        @media $small {
+            padding-left: 0px;
+            padding-right: 0px;
         }
-        @media l {
+        @media $large {
             padding-left: 8px;
             padding-right: 8px;
         }

@@ -192,15 +192,11 @@ $offset = 72px; // offset depends on toolbar's height and the gap bwtween toolba
 }
 
 .post__content {
-    @media s {
+    @media $small {
         padding: 16px;
     }
 
-    @media m {
-        padding: 32px;
-    }
-
-    @media l {
+    @media $large {
         padding: 32px;
     }
 }

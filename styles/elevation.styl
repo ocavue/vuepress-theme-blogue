@@ -19,20 +19,10 @@ elevation-transition()
 elevation-paper()
     background-color: #ffffff;
 
-    @media s {
+    @media $small {
         elevation(2)
-        &:hover {
-            elevation(2)
-        }
     }
-    @media m {
-        elevation(4)
-        elevation-transition()
-        &:hover {
-            elevation(24)
-        }
-    }
-    @media l {
+    @media $large {
         elevation(4)
         elevation-transition()
         &:hover {
