@@ -1,10 +1,28 @@
 
 <template>
-    <div id="root">
-        <Sidebar/>
-        <Tocbar :page="this.$page" :allow="!isHomePage()"/>
-        <Toolbar :showTocbarButtom="!isHomePage()"/>
-        <main :class="{'app__main': true, 'app__main--toc-open': isTocbarOpen}">
+    <div
+        id="root"
+        :class="{
+            'root--show-sidebar': showSidebar,
+            'root--show-tocbar': showTocbar,
+        }"
+    >
+        <Cover
+            :click="() => {this.showSidebar = false; this.showTocbar = false}"
+        />
+        <Sidebar
+            :click="() => {this.showSidebar = false}"
+        />
+        <Tocbar
+            :page="this.$page"
+            :allow="!isHomePage()"
+        />
+        <Toolbar
+            :showTocbarButtom="!isHomePage()"
+            :clickTocButtom="() => this.showTocbar = !this.showTocbar"
+            :clickMenuButtom="() => this.showSidebar = !this.showSidebar"
+        />
+        <main class="app__main">
             <component :is="layout" />
         </main>
         <footer class="app__footer">
@@ -24,19 +42,14 @@
 import Toolbar from "../components/Toolbar"
 import Sidebar from "../components/Sidebar"
 import Tocbar from "../components/Tocbar"
+import Cover from "../components/Cover"
 
-import { bus, getConfig } from "../utils"
+import { getConfig } from "../utils"
 
 export default {
     name: "Container",
-    components: { Toolbar, Sidebar, Tocbar },
-    created: function() {
-        bus.$on("toggleTocbarEvent", to => {
-            if (to !== undefined) {
-                this.isTocbarOpen = to
-            }
-        })
-    },
+    components: { Toolbar, Sidebar, Tocbar, Cover },
+    created: function() {},
     methods: {
         isHomePage: function() {
             return this.$page.path === this.$site.base
@@ -44,7 +57,8 @@ export default {
     },
     data: function() {
         return {
-            isTocbarOpen: false,
+            showSidebar: false,
+            showTocbar: false,
         }
     },
     computed: {
@@ -103,12 +117,12 @@ body {
         will-change: transform;
         transition: transform 300ms ease;
         transform: translateX(0px);
+    }
+}
 
-        @media (max-width: $max-main-width + 2 * $tocbar-width) {
-            &--toc-open {
-                transform: 'translateX(calc(((100vw - 100%) / 2 - %s)))' % $tocbar-width;
-            }
-        }
+.root--show-tocbar .app__main {
+    @media $large and (max-width: $max-main-width + 2 * $tocbar-width) {
+        transform: 'translateX(calc(((100vw - 100%) / 2 - %s)))' % $tocbar-width;
     }
 }
 

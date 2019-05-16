@@ -1,14 +1,13 @@
 <template>
-    <SidebarContainer :show="show" :position="'left'" @hideEvent="hideSidebar">
-        <div class="sidebar" v-show="show">
-            <div class="sidebar__header" @click="hideSidebar">
+        <div class="sidebar">
+            <div class="sidebar__header" @click="click">
                 <router-link
                     class="sidebar__header-avatar"
                     :to="'/about.html'"
                     :style="{'background-image': `url(${avatarURL})`}"
                 />
             </div>
-            <nav class="sidebar__nav" @click="hideSidebar">
+            <nav class="sidebar__nav" @click="click">
                 <router-link class="sidebar__nav-item" :to="'/'">
                     <span class="sidebar__nav-item-icon icon-home"></span>
                     <span class="sidebar__nav-item-content">HOME</span>
@@ -23,37 +22,19 @@
                 </router-link>
             </nav>
         </div>
-    </SidebarContainer>
 </template>
 
 <script>
 // reference: https://material.io/design/components/navigation-drawer.html
 
-import { bus, getConfig } from "../utils"
-import SidebarContainer from "./SidebarContainer"
+import { getConfig } from "../utils"
 
 export default {
     name: "Sidebar",
-    components: { SidebarContainer },
-    data: function() {
-        return {
-            show: false,
-        }
-    },
+    props: ["click"],
     computed: {
         avatarURL: function() {
             return getConfig(this.$site)["avatarImage"]
-        },
-    },
-    created: function() {
-        bus.$on("showSidebarEvent", this.showSidebar)
-    },
-    methods: {
-        showSidebar: function() {
-            this.show = true
-        },
-        hideSidebar: function() {
-            this.show = false
         },
     },
 }
@@ -133,6 +114,18 @@ export default {
             color: #212121;
         }
     }
+}
+
+.sidebar {
+    will-change: transform;
+    transition: transform 300ms ease, visibility 300ms ease;
+    transform: translateX(-100%)
+    visibility: hidden;
+}
+
+.root--show-sidebar > .sidebar {
+    transform: translateX(0)
+    visibility: visible;
 }
 </style>
 

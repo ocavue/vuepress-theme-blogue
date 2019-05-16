@@ -1,7 +1,5 @@
 import Vue from 'vue'
 
-const bus = new Vue()  // for non parent-child communication
-
 function isVisiblePost(page) {
     // not posts
     if (["/", "/about.html", "/resume.html", "/category/", "/tag/"].includes(page.path)) {
@@ -29,4 +27,4 @@ function getConfig(site) {
     return { ...defaultThemeConfig, ...site.themeConfig }
 }
 
-export { bus, isVisiblePost, getConfig }
+export { isVisiblePost, getConfig }

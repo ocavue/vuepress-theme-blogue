@@ -1,26 +1,17 @@
 <template>
     <header class="toolbar">
-        <span @click="showSidebar" class="toolbar__button icon-menu"></span>
+        <span @click="clickMenuButtom" class="toolbar__button icon-menu"></span>
         <router-link :to="'/'" class="toolbar__item">{{ this.$site.title || "Project Blogue" }}</router-link>
         <span style="flex: 1;"></span>
-        <span @click="toogleTocbar" class="toolbar__button icon-toc" v-if="showTocbarButtom"></span>
+        <span @click="clickTocButtom" class="toolbar__button icon-toc" v-if="showTocbarButtom"></span>
     </header>
 </template>
 
 <script>
-import { bus } from "../utils"
-
 export default {
     name: "Toolbar",
-    props: ["showTocbarButtom"],
-    methods: {
-        showSidebar: function() {
-            bus.$emit("showSidebarEvent")
-        },
-        toogleTocbar: function() {
-            bus.$emit("toggleTocbarEvent")
-        },
-    },
+    props: ["showTocbarButtom", "clickTocButtom", "clickMenuButtom"],
+    methods: {},
 }
 </script>
 

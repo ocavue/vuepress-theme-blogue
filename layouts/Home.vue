@@ -12,7 +12,7 @@
 
 <script>
 import PostCard from "../components/PostCard"
-import { bus, isVisiblePost } from "../utils"
+import { isVisiblePost } from "../utils"
 
 export default {
     name: "Home",
@@ -32,9 +32,6 @@ export default {
     },
     methods: {
         isVisiblePost: isVisiblePost,
-    },
-    created: function() {
-        bus.$emit("toggleTocbarEvent", false)
     },
 }
 </script>
