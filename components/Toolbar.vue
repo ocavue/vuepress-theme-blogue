@@ -41,8 +41,8 @@ export default {
     z-index: $z-index-toolbar;
 
     &__button {
-        height: $toobar-height;
-        width: $toobar-height;
+        height: $toolbar-height;
+        width: $toolbar-height;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -64,7 +64,7 @@ export default {
     &__item {
         display: inline-flex;
         margin-right: 16px;
-        line-height: $toobar-height;
+        line-height: $toolbar-height;
         color: #000000;
         text-decoration: none;
 
