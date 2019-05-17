@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Posts from "./Posts"
+import Posts from "./Posts.vue"
 
 export default {
     name: "Tag",

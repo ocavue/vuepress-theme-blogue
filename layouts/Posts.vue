@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import PostCard from "../components/PostCard"
+import PostCard from "../components/PostCard.vue"
 import { isVisiblePost } from "../utils"
 
 export default {

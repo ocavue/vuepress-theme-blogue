@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import Toolbar from "../components/Toolbar"
-import Sidebar from "../components/Sidebar"
-import Tocbar from "../components/Tocbar"
-import Cover from "../components/Cover"
+import Toolbar from "../components/Toolbar.vue"
+import Sidebar from "../components/Sidebar.vue"
+import Tocbar from "../components/Tocbar.vue"
+import Cover from "../components/Cover.vue"
 
 import { getConfig } from "../utils"
 

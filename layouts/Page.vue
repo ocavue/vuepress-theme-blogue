@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import PostCard from "../components/PostCard"
+import PostCard from "../components/PostCard.vue"
 
 export default {
     name: "Page",

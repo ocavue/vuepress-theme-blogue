@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Chip from "../components/Chip"
+import Chip from "../components/Chip.vue"
 
 export default {
     name: "Tags",
