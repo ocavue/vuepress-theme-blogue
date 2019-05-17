@@ -5,6 +5,9 @@
     "repository": "https://github.com/ocavue/vuepress-theme-blogue.git",
     "author": "ocavue <ocavue#gmail.com>",
     "license": "MIT",
+    "scripts": {
+        "lint": "yarn run eslint --fix --config .eslintrc --ignore-path .gitignore \"./**/*.{js,vue}\""
+    },
     "dependencies": {
         "@vuepress/plugin-active-header-links": "^1.0.0-alpha.48",
         "@vuepress/plugin-blog": "^1.0.0-alpha.47",
