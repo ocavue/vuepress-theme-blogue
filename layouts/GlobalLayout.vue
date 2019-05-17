@@ -8,10 +8,10 @@
         }"
     >
         <Cover
-            :click="() => {this.showSidebar = false; this.showTocbar = false}"
+            :click="closeCover"
         />
         <Sidebar
-            :click="() => {this.showSidebar = false}"
+            :click="closeCover"
         />
         <Tocbar
             :page="this.$page"
@@ -49,10 +49,16 @@ import { getConfig } from "../utils"
 export default {
     name: "Container",
     components: { Toolbar, Sidebar, Tocbar, Cover },
-    created: function() {},
     methods: {
         isHomePage: function() {
             return this.$page.path === this.$site.base
+        },
+        closeCover: function() {
+            if (this.showSidebar) {
+                this.showSidebar = false
+            } else {
+                this.showTocbar = false
+            }
         },
     },
     data: function() {
@@ -66,7 +72,11 @@ export default {
             return getConfig(this.$site)["debug"]
         },
         layout() {
-            this.showTocbar = this.$page.path && this.$frontmatter.layout == "Page"
+            this.showTocbar =
+                this.$page.path &&
+                this.$page.headers &&
+                this.$frontmatter.layout == "Page" &&
+                window.innerWidth > 1024 // if window width is too small, tocbar will cover main content
             if (!this.$page.path) return "NotFound"
             return this.$frontmatter.layout || "Page"
         },
