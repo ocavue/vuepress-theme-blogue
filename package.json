@@ -10,5 +10,8 @@
         "@vuepress/plugin-blog": "^1.0.0-alpha.47",
         "github-markdown-css": "^3.0.1",
         "vuepress": "^1.0.0-alpha.47"
+    },
+    "devDependencies": {
+        "eslint": "^5.16.0"
     }
 }
