@@ -76,7 +76,9 @@ export default {
                 this.$page.path &&
                 this.$page.headers &&
                 this.$frontmatter.layout == "Page" &&
-                window.innerWidth > 1024 // if window width is too small, tocbar will cover main content
+                // if window width is too small, tocbar will cover main content
+                (typeof window === "undefined" ? false : window.innerWidth > 1024)
+
             if (!this.$page.path) return "NotFound"
             return this.$frontmatter.layout || "Page"
         },
