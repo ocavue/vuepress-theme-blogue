@@ -78,7 +78,6 @@ export default {
     &__header-avatar {
         width: 112px;
         height: 112px;
-        border-radius: 50%;
         background-position: 50% 50%;
         background-size: cover;
         // background-image attribute will be added by vue.js
