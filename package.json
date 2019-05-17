@@ -12,6 +12,7 @@
         "vuepress": "^1.0.0-alpha.47"
     },
     "devDependencies": {
-        "eslint": "^5.16.0"
+        "eslint": "^5.16.0",
+        "eslint-plugin-vue": "^5.2.2"
     }
 }
