@@ -1,11 +1,14 @@
 <template>
     <div class="toc">
         <a
-            class="toc__item"
             v-for="(header, i) in page.headers"
             :key="i"
             :style="{'padding-left': `${Math.max(header.level - 2, 0) * 16 + 16}px`}"
             :href="`#${header.slug}`"
+            :class="{
+                'toc__item': true,
+                'toc__item--active': `#${header.slug}` === hash
+            }"
         >
             {{ header.title }}
         </a>
@@ -18,10 +21,10 @@
 export default {
     name: "Tocbar",
     props: ["allow", "page"],
-    data: function() {
-        return {
-            show: false,
-        }
+    computed: {
+        hash: function() {
+            return this.$route.hash
+        },
     },
 }
 </script>
@@ -30,6 +33,7 @@ export default {
 @import "../styles/base";
 @import "../styles/theme";
 @import "../styles/elevation";
+@import "../styles/scroll";
 
 .toc {
     width: $tocbar-width;
@@ -63,6 +67,8 @@ export default {
     align-items: stretch;
     justify-content: flex-start;
 
+    hide-scrollbar()
+
     &__item {
         min-height: 48px;
         display: inline-flex;
@@ -75,6 +81,11 @@ export default {
 
         // padding-left: 16px; // padding-left will be added by js
         padding-right: 16px;
+
+        &--active {
+            color: $premier-color;
+            box-shadow: inset 4px 0 0 $premier-color;
+        }
 
         &:hover {
             background-color: #e2e2e2;

@@ -6,6 +6,7 @@
     "author": "ocavue <ocavue#gmail.com>",
     "license": "MIT",
     "dependencies": {
+        "@vuepress/plugin-active-header-links": "^1.0.0-alpha.48",
         "@vuepress/plugin-blog": "^1.0.0-alpha.47",
         "github-markdown-css": "^3.0.1",
         "vuepress": "^1.0.0-alpha.47"
