@@ -4,6 +4,14 @@
         "plugin:vue/recommended"
     ],
     "rules": {
-        "no-console": "off"
+        "no-console": "off",
+        "vue/html-indent": [
+            "error",
+            4
+        ],
+        "vue/attribute-hyphenation": [
+            "error",
+            "never"
+        ]
     }
 }
