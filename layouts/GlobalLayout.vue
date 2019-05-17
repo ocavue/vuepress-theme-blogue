@@ -26,14 +26,20 @@
             <component :is="layout" />
         </main>
         <footer class="app__footer">
-            Power by <a class="app__footer-link" href="https://github.com/ocavue/vuepress-theme-blogue">Blogue</a>
+            Power by <a
+                class="app__footer-link"
+                href="https://github.com/ocavue/vuepress-theme-blogue"
+            >Blogue</a>
         </footer>
-        <div class="app__debug" v-if="debug">
+        <div
+            v-if="debug"
+            class="app__debug"
+        >
             <pre>debug info:</pre>
-            <pre>this.$site: {{ JSON.stringify(this.$site, null, 4)}}</pre>
-            <pre>this.$page: {{ JSON.stringify(this.$page, null, 4)}}</pre>
-            <pre>this.$tag:  {{ JSON.stringify(this.$tag,  null, 4)}}</pre>
-            <pre>this.$tags: {{ JSON.stringify(this.$tags, null, 4)}}</pre>
+            <pre>this.$site: {{ JSON.stringify(this.$site, null, 4) }}</pre>
+            <pre>this.$page: {{ JSON.stringify(this.$page, null, 4) }}</pre>
+            <pre>this.$tag:  {{ JSON.stringify(this.$tag, null, 4) }}</pre>
+            <pre>this.$tags: {{ JSON.stringify(this.$tags, null, 4) }}</pre>
         </div>
     </div>
 </template>
@@ -49,18 +55,6 @@ import { getConfig } from "../utils"
 export default {
     name: "Container",
     components: { Toolbar, Sidebar, Tocbar, Cover },
-    methods: {
-        isHomePage: function() {
-            return this.$page.path === this.$site.base
-        },
-        closeCover: function() {
-            if (this.showSidebar) {
-                this.showSidebar = false
-            } else {
-                this.showTocbar = false
-            }
-        },
-    },
     data: function() {
         return {
             showSidebar: false,
@@ -81,6 +75,18 @@ export default {
 
             if (!this.$page.path) return "NotFound"
             return this.$frontmatter.layout || "Page"
+        },
+    },
+    methods: {
+        isHomePage: function() {
+            return this.$page.path === this.$site.base
+        },
+        closeCover: function() {
+            if (this.showSidebar) {
+                this.showSidebar = false
+            } else {
+                this.showTocbar = false
+            }
         },
     },
 }

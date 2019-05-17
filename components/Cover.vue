@@ -1,5 +1,8 @@
 <template>
-    <span class="cover" @click="click"></span>
+    <span
+        class="cover"
+        @click="click"
+    />
 </template>
 
 <script>

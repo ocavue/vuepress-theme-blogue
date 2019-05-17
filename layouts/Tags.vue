@@ -1,6 +1,8 @@
 <template>
     <div class="tags">
-        <h1 class="tags--title">Tags</h1>
+        <h1 class="tags--title">
+            Tags
+        </h1>
         <div class="tags-links">
             <Chip
                 v-for="(tag, index) in this.$tags.list"

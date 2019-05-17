@@ -1,27 +1,42 @@
 <template>
-        <div class="sidebar">
-            <div class="sidebar__header" @click="click">
-                <router-link
-                    class="sidebar__header-avatar"
-                    :to="'/about.html'"
-                    :style="{'background-image': `url(${avatarURL})`}"
-                />
-            </div>
-            <nav class="sidebar__nav" @click="click">
-                <router-link class="sidebar__nav-item" :to="'/'">
-                    <span class="sidebar__nav-item-icon icon-home"></span>
-                    <span class="sidebar__nav-item-content">HOME</span>
-                </router-link>
-                <router-link class="sidebar__nav-item" :to="'/about.html'">
-                    <span class="sidebar__nav-item-icon icon-face"></span>
-                    <span class="sidebar__nav-item-content">ABOUT</span>
-                </router-link>
-                <router-link class="sidebar__nav-item" :to="'/tag/'">
-                    <span class="sidebar__nav-item-icon icon-tag"></span>
-                    <span class="sidebar__nav-item-content">TAGS</span>
-                </router-link>
-            </nav>
+    <div class="sidebar">
+        <div
+            class="sidebar__header"
+            @click="click"
+        >
+            <router-link
+                class="sidebar__header-avatar"
+                :to="'/about.html'"
+                :style="{'background-image': `url(${avatarURL})`}"
+            />
         </div>
+        <nav
+            class="sidebar__nav"
+            @click="click"
+        >
+            <router-link
+                class="sidebar__nav-item"
+                :to="'/'"
+            >
+                <span class="sidebar__nav-item-icon icon-home" />
+                <span class="sidebar__nav-item-content">HOME</span>
+            </router-link>
+            <router-link
+                class="sidebar__nav-item"
+                :to="'/about.html'"
+            >
+                <span class="sidebar__nav-item-icon icon-face" />
+                <span class="sidebar__nav-item-content">ABOUT</span>
+            </router-link>
+            <router-link
+                class="sidebar__nav-item"
+                :to="'/tag/'"
+            >
+                <span class="sidebar__nav-item-icon icon-tag" />
+                <span class="sidebar__nav-item-content">TAGS</span>
+            </router-link>
+        </nav>
+    </div>
 </template>
 
 <script>

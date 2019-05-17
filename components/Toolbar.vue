@@ -1,9 +1,21 @@
 <template>
     <header class="toolbar">
-        <span @click="clickMenuButtom" class="toolbar__button icon-menu"></span>
-        <router-link :to="'/'" class="toolbar__item">{{ this.$site.title || "Project Blogue" }}</router-link>
-        <span style="flex: 1;"></span>
-        <span @click="clickTocButtom" class="toolbar__button icon-toc" v-if="showTocbarButtom"></span>
+        <span
+            class="toolbar__button icon-menu"
+            @click="clickMenuButtom"
+        />
+        <router-link
+            :to="'/'"
+            class="toolbar__item"
+        >
+            {{ this.$site.title || "Project Blogue" }}
+        </router-link>
+        <span style="flex: 1;" />
+        <span
+            v-if="showTocbarButtom"
+            class="toolbar__button icon-toc"
+            @click="clickTocButtom"
+        />
     </header>
 </template>
 

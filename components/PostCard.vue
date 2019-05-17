@@ -14,9 +14,12 @@
                 <span>{{ this.date }}</span>
             </span>
         </router-link>
-        <div v-if="showContent" class="post__content markdown-body">
+        <div
+            v-if="showContent"
+            class="post__content markdown-body"
+        >
             <!-- markdown-body is used by github-markdown-css -->
-            <Content/>
+            <Content />
         </div>
     </div>
 </template>
@@ -35,13 +38,13 @@ export default {
             postImgStyle: null,
         }
     },
-    created: function() {
-        this.initialize()
-    },
     watch: {
         $route: function(to, from) {
             this.initialize()
         },
+    },
+    created: function() {
+        this.initialize()
     },
     methods: {
         initialize: function() {

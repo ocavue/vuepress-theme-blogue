@@ -1,5 +1,9 @@
 <template>
-    <PostCard :page="this.$page" :showContent="true" :showLink="false"/>
+    <PostCard
+        :page="this.$page"
+        :showContent="true"
+        :showLink="false"
+    />
 </template>
 
 <script>
