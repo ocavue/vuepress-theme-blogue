@@ -17,31 +17,42 @@ tags: ["Tag1"]
 
 ###### H6 header
 
-## Code hightlight:
+## Code Syntax Highlighting
 
-```js
-export default {
-    name: "HomePage",
-    components: { PostCard },
-    computed: {
-        pages() {
-            let pages = this.$site.pages.filter(isVisiblePost)
-            pages.sort((page1, page2) => {
-                if (page1.frontmatter.date < page2.frontmatter.date) {
-                    return 1
-                } else {
-                    return -1
-                }
-            })
-            return pages
-        },
-    },
-    methods: {
-        isVisiblePost: isVisiblePost,
-    },
-    created: function() {
-        bus.$emit("toggleTocbarEvent", false)
-    },
+```go
+package main
+
+import "fmt"
+
+func sum(s []int, c chan int) {
+	sum := 0
+	for _, v := range s {
+		sum += v
+	}
+	c <- sum // send sum to c
+}
+
+func main() {
+	s := []int{7, 2, 8, -9, 4, 0}
+
+	c := make(chan int)
+	go sum(s[:len(s)/2], c)
+	go sum(s[len(s)/2:], c)
+	x, y := <-c, <-c // receive from c
+
+	fmt.Println(x, y, x+y)
 }
 ```
+
+## Table
+
+| Tables        |      Are      |  Cool |
+| :------------ | :-----------: | ----: |
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      |   centered    |   $12 |
+| zebra stripes |   are neat    |    $1 |
+
+## Image
+
+![vue.js logo](./vue-logo.png)
 
