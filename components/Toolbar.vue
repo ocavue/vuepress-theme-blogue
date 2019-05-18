@@ -22,7 +22,11 @@
 <script>
 export default {
     name: "Toolbar",
-    props: ["showTocbarButtom", "clickTocButtom", "clickMenuButtom"],
+    props: {
+        showTocbarButtom: { type: Boolean, required: true },
+        clickTocButtom: { type: Function, required: true },
+        clickMenuButtom: { type: Function, required: true },
+    },
     methods: {},
 }
 </script>

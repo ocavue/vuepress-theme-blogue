@@ -29,7 +29,11 @@ import { isVisiblePost } from "../utils"
 
 export default {
     name: "PostCard",
-    props: ["page", "showContent", "showLink"],
+    props: {
+        page: { type: Object, required: true },
+        showContent: { type: Boolean, default: false },
+        showLink: { type: Boolean, default: false },
+    },
     data: function() {
         return {
             title: null,
@@ -39,7 +43,7 @@ export default {
         }
     },
     watch: {
-        $route: function(to, from) {
+        $route: function() {
             this.initialize()
         },
     },

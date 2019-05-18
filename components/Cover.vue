@@ -8,7 +8,9 @@
 <script>
 export default {
     name: "Cover",
-    props: ["click"],
+    props: {
+        click: { type: Function, required: true },
+    },
 }
 </script>
 

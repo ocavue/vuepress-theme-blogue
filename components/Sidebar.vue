@@ -46,7 +46,9 @@ import { getConfig } from "../utils"
 
 export default {
     name: "Sidebar",
-    props: ["click"],
+    props: {
+        click: { type: Function, required: true },
+    },
     computed: {
         avatarURL: function() {
             return getConfig(this.$site)["avatarImage"]

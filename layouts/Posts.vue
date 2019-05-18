@@ -23,6 +23,7 @@ export default {
     props: {
         pages: {
             type: Array,
+            default: () => [],
         },
         header: {
             type: String,

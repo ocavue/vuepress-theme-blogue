@@ -20,7 +20,10 @@
 
 export default {
     name: "Tocbar",
-    props: ["allow", "page"],
+    props: {
+        allow: { type: Boolean, required: true },
+        page: { type: Object, required: true },
+    },
     computed: {
         hash: function() {
             return this.$route.hash
