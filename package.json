@@ -6,7 +6,7 @@
     "author": "ocavue <ocavue#gmail.com>",
     "license": "MIT",
     "scripts": {
-        "lint": "yarn run eslint --fix --config .eslintrc --ignore-path .gitignore \"./**/*.{js,vue}\""
+        "lint": "yarn run eslint --fix --max-warnings 0 --config .eslintrc --ignore-path .gitignore \"./**/*.{js,vue}\""
     },
     "dependencies": {
         "@vuepress/plugin-active-header-links": "^1.0.0-alpha.48",
