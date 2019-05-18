@@ -30,6 +30,5 @@ jobs:
       - image: node:10-alpine
     steps:
       - checkout
-      - run: |
-          yarn install -D
-          yarn lint
+      - run: yarn install -D
+      - run: yarn lint
