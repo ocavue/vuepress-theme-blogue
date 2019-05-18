@@ -190,5 +190,5 @@ $offset = 72px // offset depends on toolbar's height and the gap bwtween toolbar
         padding 16px
 
     @media $large
-        padding 32px
+        padding 48px
 </style>
