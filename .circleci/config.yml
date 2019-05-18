@@ -1,4 +1,11 @@
 version: 2
+
+workflows:
+  main:
+    jobs:
+      - build
+      - lint
+
 jobs:
   build:
     docker:
