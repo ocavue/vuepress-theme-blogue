@@ -11,6 +11,7 @@
     "dependencies": {
         "@vuepress/plugin-active-header-links": "^1.0.0-alpha.48",
         "@vuepress/plugin-blog": "^1.0.0-alpha.47",
+        "@vuepress/plugin-medium-zoom": "^1.0.0-alpha.48",
         "github-markdown-css": "^3.0.1",
         "vuepress": "^1.0.0-alpha.47"
     },

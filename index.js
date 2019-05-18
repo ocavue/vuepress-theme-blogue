@@ -1,6 +1,7 @@
 module.exports = {
     plugins: {
         "@vuepress/blog": {},
+        "@vuepress/medium-zoom": {},
         "@vuepress/plugin-active-header-links": {
             sidebarLinkSelector: '.toc__item',
             headerTopOffset: 56,
