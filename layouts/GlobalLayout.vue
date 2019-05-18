@@ -19,8 +19,8 @@
         />
         <Toolbar
             :showTocbarButtom="!isHomePage()"
-            :clickTocButtom="() => this.showTocbar = !this.showTocbar"
-            :clickMenuButtom="() => this.showSidebar = !this.showSidebar"
+            :clickTocButtom="() => showTocbar = !showTocbar"
+            :clickMenuButtom="() => showSidebar = !showSidebar"
         />
         <main class="app__main">
             <component :is="layout" />

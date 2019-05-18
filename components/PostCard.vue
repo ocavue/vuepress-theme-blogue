@@ -3,15 +3,15 @@
         <router-link
             :class="{ 'post__img': true, 'post__img--nolink': !showLink }"
             :style="postImgStyle"
-            :to="this.path"
+            :to="path"
         >
             <span class="post__img-title">
-                {{ this.page.title }}
+                {{ page.title }}
             </span>
             <span class="post__img-info">
                 <!-- <span>share</span> -->
                 <!-- TODO make a share button -->
-                <span>{{ this.date }}</span>
+                <span>{{ date }}</span>
             </span>
         </router-link>
         <div
