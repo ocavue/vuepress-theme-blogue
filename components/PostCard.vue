@@ -109,6 +109,11 @@ $offset = 72px // offset depends on toolbar's height and the gap bwtween toolbar
 // Cover github-markdown-css's css
 .markdown-body pre
     background-color #2d2d2d !important
+
+.markdown-body img
+    display block
+    margin-right auto
+    margin-left auto
 </style>
 
 <style lang="stylus" scoped>
