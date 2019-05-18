@@ -16,11 +16,11 @@
         },
     ],
     // Stylus Supremacy
+    "stylusSupremacy.ignoreFiles": ["styles/base.styl", "styles/elevation.styl"],
     "stylusSupremacy.insertSemicolons": false,
-    "stylusSupremacy.insertParenthesisAroundIfCondition": false,
     "stylusSupremacy.insertColons": false,
     "stylusSupremacy.insertBraces": false,
+    "stylusSupremacy.insertParenthesisAroundIfCondition": false,
     "stylusSupremacy.selectorSeparator": "\n",
-    "stylusSupremacy.sortProperties": "grouped",
-    "stylusSupremacy.ignoreFiles": ["styles/base.styl", "styles/elevation.styl"]
+    "stylusSupremacy.sortProperties": "grouped"
 }
