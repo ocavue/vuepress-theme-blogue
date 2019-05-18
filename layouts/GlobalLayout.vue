@@ -66,13 +66,6 @@ export default {
             return getConfig(this.$site)["debug"]
         },
         layout() {
-            this.showTocbar =
-                this.$page.path &&
-                this.$page.headers &&
-                this.$frontmatter.layout == "Page" &&
-                // if window width is too small, tocbar will cover main content
-                (typeof window === "undefined" ? false : window.innerWidth > 1024)
-
             if (!this.$page.path) return "NotFound"
             return this.$frontmatter.layout || "Page"
         },
@@ -89,6 +82,16 @@ export default {
             }
         },
     },
+    beforeRouteEnter: function(to, from, next) {
+        next(self => {
+            self.showTocbar =
+                self.$page.path &&
+                self.$page.headers &&
+                self.$frontmatter.layout == "Page" &&
+                // if window width is too small, tocbar will cover main content
+                (typeof window === "undefined" ? false : window.innerWidth > 1024)
+        })
+    },
 }
 </script>
 
@@ -101,7 +104,7 @@ body
     margin 0
     padding 0
     background-color $background-color
-    font-family "Helvetica Neue",Helvetica,Arial,"华文细黑","STXihei","微软雅黑","Microsoft YaHei",sans-serif
+    font-family "Helvetica Neue", Helvetica, Arial, "华文细黑", "STXihei", "微软雅黑", "Microsoft YaHei", sans-serif
 
 #root
     display flex
