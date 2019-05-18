@@ -1,6 +1,8 @@
 <template>
     <div class="tags">
-        <h1 class="tags--title">Tags</h1>
+        <h1 class="tags--title">
+            Tags
+        </h1>
         <div class="tags-links">
             <Chip
                 v-for="(tag, index) in this.$tags.list"
@@ -13,7 +15,7 @@
 </template>
 
 <script>
-import Chip from "../components/Chip"
+import Chip from "../components/Chip.vue"
 
 export default {
     name: "Tags",
@@ -22,14 +24,12 @@ export default {
 </script>
 
 <style lang="stylus">
-.tags {
-    display: flex;
-    flex-direction: column;
-}
+.tags
+    display flex
+    flex-direction column
 
-.tags-links {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
+.tags-links
+    display flex
+    flex-direction row
+    flex-wrap wrap
 </style>

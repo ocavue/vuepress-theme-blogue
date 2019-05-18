@@ -1,0 +1,26 @@
+{
+    // vetur
+    "vetur.validation.template": false, // Use ESLint to check <template>
+    "vetur.format.defaultFormatter.html": "none", // Use eslint --fix
+    "vetur.format.defaultFormatter.js": "prettier-eslint",
+    "vetur.experimental.templateInterpolationService": true,
+    "vetur.format.options.tabSize": 4,
+    // eslint
+    "eslint.packageManager": "yarn",
+    "eslint.autoFixOnSave": true,
+    "eslint.validate": [
+        "javascript",
+        {
+            "language": "vue",
+            "autoFix": true
+        },
+    ],
+    // Stylus Supremacy
+    "stylusSupremacy.ignoreFiles": ["styles/base.styl", "styles/elevation.styl"],
+    "stylusSupremacy.insertSemicolons": false,
+    "stylusSupremacy.insertColons": false,
+    "stylusSupremacy.insertBraces": false,
+    "stylusSupremacy.insertParenthesisAroundIfCondition": false,
+    "stylusSupremacy.selectorSeparator": "\n",
+    "stylusSupremacy.sortProperties": "grouped"
+}

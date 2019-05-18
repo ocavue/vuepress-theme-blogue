@@ -20,7 +20,10 @@
 
 export default {
     name: "Tocbar",
-    props: ["allow", "page"],
+    props: {
+        allow: { type: Boolean, required: true },
+        page: { type: Object, required: true },
+    },
     computed: {
         hash: function() {
             return this.$route.hash
@@ -30,87 +33,72 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import "../styles/base";
-@import "../styles/theme";
-@import "../styles/elevation";
-@import "../styles/scroll";
+@import "../styles/base"
+@import "../styles/theme"
+@import "../styles/elevation"
+@import "../styles/scroll"
 
-.toc {
-    width: $tocbar-width;
-    max-width: calc(100vw - 56px);
-    position: fixed;
-    overflow-x: hidden;
-    overflow-y: auto;
+.toc
+    position fixed
+    overflow-x hidden
+    overflow-y auto
+    max-width calc(100vw - 56px)
+    width $tocbar-width
 
-    @media $small {
-        elevation(4);
-        background-color: #ffffff;
+    @media $small
+        elevation(4)
+        top 0
+        right 0
+        bottom 0
+        z-index $z-index-tocbar-small
+        background-color #ffffff
 
-        top: 0;
-        right: 0;
-        bottom: 0;
+    @media $large
+        top $toolbar-height
+        right 0
+        bottom 0
+        z-index $z-index-tocbar-large
+        background-color $background-color
 
-        z-index: $z-index-tocbar-small;
-    }
-    @media $large {
-        background-color: $background-color;
-
-        top: $toolbar-height;
-        right: 0;
-        bottom: 0;
-
-        z-index: $z-index-tocbar-large;
-    }
-
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-
+    display flex
+    flex-direction column
+    justify-content flex-start
+    align-items stretch
     hide-scrollbar()
 
-    &__item {
-        min-height: 48px;
-        display: inline-flex;
-        align-items: center;
-        color: black;
-        text-decoration: none;
-        font-size: 0.9rem;
-        overflow-x: hidden;
-        overflow-y: hidden;
-
+    &__item
+        display inline-flex
+        align-items center
+        overflow-x hidden
+        overflow-y hidden
         // padding-left: 16px; // padding-left will be added by js
-        padding-right: 16px;
+        padding-right 16px
+        min-height 48px
+        color black
+        text-decoration none
+        font-size 0.9rem
 
-        &--active {
-            color: $premier-color;
-            box-shadow: inset 4px 0 0 $premier-color;
-        }
+        &--active
+            box-shadow inset 4px 0 0 $premier-color
+            color $premier-color
 
-        &:hover {
-            background-color: #e2e2e2;
-        }
+        &:hover
+            background-color #e2e2e2
 
-        &:first-child {
-            margin-top: 64px;  // keep that the first-child and PostCard has same upper edge height
-        }
+        &:first-child
+            margin-top 64px // keep that the first-child and PostCard has same upper edge height
 
-        &:last-child {
-            margin-bottom: 48px;
-        }
-    }
-}
+        &:last-child
+            margin-bottom 48px
 
-.toc {
-    will-change: transform;
-    transition: transform 300ms ease, visibility 300ms ease;
-    transform: translateX(100%)
-    visibility: hidden;
-}
+.toc
+    visibility hidden
+    transition transform 300ms ease, visibility 300ms ease
+    transform translateX(100%)
+    will-change transform
 
-.root--show-tocbar > .toc {
-    transform: translateX(0)
-    visibility: visible;
-}
+.root--show-tocbar > .toc
+    visibility visible
+    transform translateX(0)
 </style>
 

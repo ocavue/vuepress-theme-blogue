@@ -1,42 +1,43 @@
 <template>
-    <span class="cover" @click="click"></span>
+    <span
+        class="cover"
+        @click="click"
+    />
 </template>
 
 <script>
 export default {
     name: "Cover",
-    props: ["click"],
+    props: {
+        click: { type: Function, required: true },
+    },
 }
 </script>
 
 <style lang="stylus" scoped>
-@import '../styles/base';
+@import "../styles/base"
 
-.cover {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    cursor: pointer;
-    z-index: $z-index-cover;
-    transition: opacity 300ms ease, visibility 300ms ease;
-    will-change: opacity, visibility;
-    opacity: 0;
-    visibility: hidden;
-}
+.cover
+    position fixed
+    top 0
+    right 0
+    bottom 0
+    left 0
+    z-index $z-index-cover
+    visibility hidden
+    background-color rgba(0, 0, 0, 0.7)
+    opacity 0
+    cursor pointer
+    transition opacity 300ms ease, visibility 300ms ease
+    will-change opacity, visibility
 
-.root--show-sidebar > .cover {
-    opacity: 1;
-    visibility: visible;
-}
+.root--show-sidebar > .cover
+    visibility visible
+    opacity 1
 
-.root--show-tocbar > .cover {
-    @media $small {
-        opacity: 1;
-        visibility: visible;
-    }
-}
+.root--show-tocbar > .cover
+    @media $small
+        visibility visible
+        opacity 1
 </style>
 

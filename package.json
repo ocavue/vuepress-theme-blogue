@@ -5,10 +5,17 @@
     "repository": "https://github.com/ocavue/vuepress-theme-blogue.git",
     "author": "ocavue <ocavue#gmail.com>",
     "license": "MIT",
+    "scripts": {
+        "lint": "yarn run eslint --fix --max-warnings 0 --config .eslintrc --ignore-path .gitignore \"./**/*.{js,vue}\""
+    },
     "dependencies": {
         "@vuepress/plugin-active-header-links": "^1.0.0-alpha.48",
         "@vuepress/plugin-blog": "^1.0.0-alpha.47",
         "github-markdown-css": "^3.0.1",
         "vuepress": "^1.0.0-alpha.47"
+    },
+    "devDependencies": {
+        "eslint": "^5.16.0",
+        "eslint-plugin-vue": "^5.2.2"
     }
 }

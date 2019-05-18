@@ -3,20 +3,23 @@
         <router-link
             :class="{ 'post__img': true, 'post__img--nolink': !showLink }"
             :style="postImgStyle"
-            :to="this.path"
+            :to="path"
         >
             <span class="post__img-title">
-                {{ this.page.title }}
+                {{ page.title }}
             </span>
             <span class="post__img-info">
                 <!-- <span>share</span> -->
                 <!-- TODO make a share button -->
-                <span>{{ this.date }}</span>
+                <span>{{ date }}</span>
             </span>
         </router-link>
-        <div v-if="showContent" class="post__content markdown-body">
+        <div
+            v-if="showContent"
+            class="post__content markdown-body"
+        >
             <!-- markdown-body is used by github-markdown-css -->
-            <Content/>
+            <Content />
         </div>
     </div>
 </template>
@@ -26,7 +29,11 @@ import { isVisiblePost } from "../utils"
 
 export default {
     name: "PostCard",
-    props: ["page", "showContent", "showLink"],
+    props: {
+        page: { type: Object, required: true },
+        showContent: { type: Boolean, default: false },
+        showLink: { type: Boolean, default: false },
+    },
     data: function() {
         return {
             title: null,
@@ -35,13 +42,13 @@ export default {
             postImgStyle: null,
         }
     },
-    created: function() {
-        this.initialize()
-    },
     watch: {
-        $route: function(to, from) {
+        $route: function() {
             this.initialize()
         },
+    },
+    created: function() {
+        this.initialize()
     },
     methods: {
         initialize: function() {
@@ -85,119 +92,98 @@ export default {
 <style lang="stylus">
 // https://stackoverflow.com/q/4086107
 // https://stackoverflow.com/a/11842865
+$offset = 72px // offset depends on toolbar's height and the gap bwtween toolbar and header
 
-$offset = 72px; // offset depends on toolbar's height and the gap bwtween toolbar and header
+.post__content h1
+    margin-top -1 * $offset + 24px !important // Use `!important` to cover github-markdown-css's css
+    padding-top $offset
 
-.post__content h1 {
-    margin-top: -1 * $offset + 24px !important; // Use `!important` to cover github-markdown-css's css
-    padding-top: $offset;
-}
-
-.post__content h2,
-.post__content h3,
-.post__content h4,
-.post__content h5,
-.post__content h6 {
-    margin-top: -1 * $offset + 8px !important;
-    padding-top: $offset;
-}
+.post__content h2
+.post__content h3
+.post__content h4
+.post__content h5
+.post__content h6
+    margin-top -1 * $offset + 8px !important
+    padding-top $offset
 
 // Cover github-markdown-css's css
-.markdown-body pre {
-    background-color: #2d2d2d !important;
-}
+.markdown-body pre
+    background-color #2d2d2d !important
 </style>
 
 <style lang="stylus" scoped>
-@import "~github-markdown-css/github-markdown.css";
-@import "../styles/elevation";
-@import "../styles/base";
-@import "../styles/theme";
+@import "~github-markdown-css/github-markdown.css"
+@import "../styles/elevation"
+@import "../styles/base"
+@import "../styles/theme"
 
-.post {
-    elevation-paper();
-    border-radius: 2px;
-    overflow: hidden;
+.post
+    elevation-paper()
+    overflow hidden
+    border-radius 2px
 
-    @media $small {
-        margin-bottom: 16px;
-    }
+    @media $small
+        margin-bottom 16px
 
-    @media $large {
-        margin-bottom: 32px;
-    }
-}
+    @media $large
+        margin-bottom 32px
 
-.post__img {
-    background-color: #808080; // if not image
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: stretch;
-    text-decoration: none;
+.post__img
+    display flex
+    flex-direction column
+    justify-content flex-end
+    align-items stretch
+    background-color #808080 // if not image
+    background-position 50% 50%
+    background-size cover
+    background-repeat no-repeat
+    text-decoration none
 
-    @media $small {
-        height: 50vw;
-    }
+    @media $small
+        height 50vw
 
-    @media $large {
-        height: 'calc(0.4 * (100vw - %s))' % $tocbar-width;
-        max-height: 0.4 * $max-main-width;
-    }
+    @media $large
+        max-height 0.4 * $max-main-width
+        height "calc(0.4 * (100vw - %s))" % $tocbar-width
 
-    &--nolink {
-        cursor: default;
-    }
+    &--nolink
+        cursor default
 
-    &-title {
-        color: #ffffff;
-        margin-left: 32px;
-        margin-right: 32px;
-        margin-bottom: 32px;
-    }
+    &-title
+        margin-right 32px
+        margin-bottom 32px
+        margin-left 32px
+        color #ffffff
+        font-size 40px // fallback value
+        $font-size-template = "calc(8px + 0.04 * (%s))"
 
-    &-title {
-        font-size: 40px;  // fallback value
+        @media $small
+            $main-width = 100vw
+            font-size $font-size-template % $main-width
 
-        $font-size-template = 'calc(8px + 0.04 * (%s))';
-        @media $small {
-            $main-width = 100vw;
-            font-size: $font-size-template % $main-width;
-        }
-        @media $large {
-            @media (max-width: $max-main-width + $tocbar-width) {
-                $main-width = '100vw - %s' % $tocbar-width;
-                font-size: $font-size-template % $main-width;
-            }
-            @media (min-width: $max-main-width + $tocbar-width + 1px) {
-                $main-width = $max-main-width;
-                font-size: $font-size-template % $main-width;
-            }
-        }
-    }
+        @media $large
+            @media (max-width: $max-main-width + $tocbar-width)
+                $main-width = "100vw - %s" % $tocbar-width
+                font-size $font-size-template % $main-width
 
-    &-info {
-        color: #c2c2c2;
-        font-weight: 500;
-        margin-left: 32px;
-        margin-right: 32px;
-        margin-bottom: 16px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-}
+            @media (min-width: $max-main-width + $tocbar-width + 1px)
+                $main-width = $max-main-width
+                font-size $font-size-template % $main-width
 
-.post__content {
-    @media $small {
-        padding: 16px;
-    }
+    &-info
+        display flex
+        flex-direction row
+        justify-content space-between
+        margin-right 32px
+        margin-bottom 16px
+        margin-left 32px
+        color #c2c2c2
+        font-weight 500
 
-    @media $large {
-        padding: 32px;
-    }
-}
+.post__content
+    @media $small
+        padding 16px
+
+    @media $large
+        padding 32px
 </style>

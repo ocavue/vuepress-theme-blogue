@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 function isVisiblePost(page) {
     // not posts
     if (["/", "/about.html", "/resume.html", "/category/", "/tag/"].includes(page.path)) {

@@ -1,6 +1,8 @@
 <template>
     <div>
-        <h1 v-if="header">{{ header }}</h1>
+        <h1 v-if="header">
+            {{ header }}
+        </h1>
         <PostCard
             v-for="page in postPages"
             :key="page.key"
@@ -12,21 +14,22 @@
 </template>
 
 <script>
-import PostCard from "../components/PostCard"
+import PostCard from "../components/PostCard.vue"
 import { isVisiblePost } from "../utils"
 
 export default {
     name: "Posts",
+    components: { PostCard },
     props: {
         pages: {
             type: Array,
+            default: () => [],
         },
         header: {
             type: String,
-            default: '',
+            default: "",
         },
     },
-    components: { PostCard },
     computed: {
         postPages() {
             let ps = this.pages.filter(isVisiblePost)

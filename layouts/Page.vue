@@ -1,9 +1,13 @@
 <template>
-    <PostCard :page="this.$page" :showContent="true" :showLink="false"/>
+    <PostCard
+        :page="this.$page"
+        :showContent="true"
+        :showLink="false"
+    />
 </template>
 
 <script>
-import PostCard from "../components/PostCard"
+import PostCard from "../components/PostCard.vue"
 
 export default {
     name: "Page",
