@@ -3,6 +3,10 @@
         "eslint:recommended",
         "plugin:vue/recommended"
     ],
+    "env": {
+        "browser": true,
+        "node": true
+    },
     "rules": {
         "no-console": "off",
         "eqeqeq": "error",
