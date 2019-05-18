@@ -9,7 +9,7 @@
     },
     "rules": {
         "no-console": "off",
-        "eqeqeq": "error",
+        "vue/eqeqeq": "error",
         "vue/html-indent": [
             "error",
             4
