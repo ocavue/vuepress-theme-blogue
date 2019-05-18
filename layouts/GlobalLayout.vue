@@ -87,7 +87,7 @@ export default {
             self.showTocbar =
                 self.$page.path &&
                 self.$page.headers &&
-                self.$frontmatter.layout == "Page" &&
+                self.$frontmatter.layout === "Page" &&
                 // if window width is too small, tocbar will cover main content
                 (typeof window === "undefined" ? false : window.innerWidth > 1024)
         })
