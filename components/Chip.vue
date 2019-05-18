@@ -10,11 +10,10 @@
 <script>
 export default {
     name: "Chip",
-    // props: {
-    //     name: { type: String, required: true },
-    //     to: { type: String, required: true },
-    // },
-    props: ["name", "to"],
+    props: {
+        name: { type: String, required: true },
+        to: { type: String, required: true },
+    },
 }
 </script>
 
