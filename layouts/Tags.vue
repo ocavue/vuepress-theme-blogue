@@ -24,14 +24,12 @@ export default {
 </script>
 
 <style lang="stylus">
-.tags {
-    display: flex;
-    flex-direction: column;
-}
+.tags
+    display flex
+    flex-direction column
 
-.tags-links {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
+.tags-links
+    display flex
+    flex-direction row
+    flex-wrap wrap
 </style>

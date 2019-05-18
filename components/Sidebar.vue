@@ -56,90 +56,75 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import "../styles/icon";
-@import "../styles/base";
+@import "../styles/icon"
+@import "../styles/base"
 
-.sidebar {
-    width: 300px;
-    max-width: calc(100vw - 56px);
-    position: fixed;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background-color: #ffffff;
-    z-index: $z-index-sidebar;
+.sidebar
+    position fixed
+    top 0px
+    bottom 0
+    left 0
+    z-index $z-index-sidebar
+    display flex
+    flex-direction column
+    justify-content flex-start
+    align-items stretch
+    overflow-x hidden
+    overflow-y auto
+    max-width calc(100vw - 56px)
+    width 300px
+    background-color #ffffff
 
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
+    &__header
+        display flex
+        justify-content center
+        align-items center
+        min-height 168px
+        height 168px
+        border-bottom-width 1px
+        border-bottom-style solid
+        border-bottom-color #dfdfdf
 
-    top: 0px;
-    bottom: 0;
-    left: 0;
-
-    &__header {
-        height: 168px;
-        min-height: 168px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        border-bottom-style: solid;
-        border-bottom-width: 1px;
-        border-bottom-color: #dfdfdf;
-    }
-
-    &__header-avatar {
-        width: 112px;
-        height: 112px;
-        background-position: 50% 50%;
-        background-size: cover;
+    &__header-avatar
+        width 112px
+        height 112px
+        background-position 50% 50%
+        background-size cover
         // background-image attribute will be added by vue.js
-    }
 
-    &__nav {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-    }
+    &__nav
+        display flex
+        flex-direction column
+        justify-content flex-start
+        align-items stretch
 
-    &__nav-item {
-        display: inline-flex;
-        align-items: center;
+    &__nav-item
+        display inline-flex
+        align-items center
+        overflow hidden
+        padding-right 16px
+        padding-left 16px
+        height 56px
+        text-decoration none
 
-        height: 56px;
-        padding-left: 16px;
-        padding-right: 16px;
-        text-decoration: none;
-        overflow: hidden;
+        &:hover
+            background-color #eeecec
 
-        &:hover {
-            background-color: #eeecec;
-        }
+        &-icon
+            margin-right 32px
+            color #757575
 
-        &-icon {
-            margin-right: 32px;
-            color: #757575;
-        }
+        &-content
+            color #212121
 
-        &-content {
-            color: #212121;
-        }
-    }
-}
+.sidebar
+    visibility hidden
+    transition transform 300ms ease, visibility 300ms ease
+    transform translateX(-100%)
+    will-change transform
 
-.sidebar {
-    will-change: transform;
-    transition: transform 300ms ease, visibility 300ms ease;
-    transform: translateX(-100%)
-    visibility: hidden;
-}
-
-.root--show-sidebar > .sidebar {
-    transform: translateX(0)
-    visibility: visible;
-}
+.root--show-sidebar > .sidebar
+    visibility visible
+    transform translateX(0)
 </style>
 

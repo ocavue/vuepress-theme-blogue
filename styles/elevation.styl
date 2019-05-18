@@ -1,4 +1,4 @@
-@import './base';
+@import "./base"
 
 // https://stackoverflow.com/a/35051574
 elevation(dp)
@@ -13,19 +13,17 @@ elevation(dp)
     box-shadow 0px dp blur rgba(0, 0, 0, amba), 0px diry blur rgba(0, 0, 0, dira)
 
 elevation-transition()
-  transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1)
-
+  transition box-shadow .28s cubic-bezier(.4, 0, .2, 1)
 
 elevation-paper()
-    background-color: #ffffff;
+  background-color #ffffff
 
-    @media $small {
-        elevation(2)
-    }
-    @media $large {
-        elevation(4)
-        elevation-transition()
-        &:hover {
-            elevation(24)
-        }
-    }
+  @media $small
+    elevation(2)
+
+  @media $large
+    elevation(4)
+    elevation-transition()
+
+    &:hover
+      elevation(24)

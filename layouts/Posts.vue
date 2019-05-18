@@ -26,7 +26,7 @@ export default {
         },
         header: {
             type: String,
-            default: '',
+            default: "",
         },
     },
     computed: {

@@ -15,23 +15,21 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../styles/theme';
+@import "../styles/theme"
 
-.chip {
-    border: 1px $premier-color solid;
-    border-radius: 3em;
-    text-align: center;
-    min-width: 1.5em;
-    padding: 0.5em 1em;
-    margin: 0.5em 0.4em;
-    text-decoration: none;
-    color: $premier-color;
-    transition : background-color 100ms, color 100ms;
+.chip
+    margin 0.5em 0.4em
+    padding 0.5em 1em
+    min-width 1.5em
+    border 1px $premier-color solid
+    border-radius 3em
+    color $premier-color
+    text-align center
+    text-decoration none
+    transition background-color 100ms, color 100ms
 
-    &:hover {
-        background-color: $premier-color;
-        color: #ffffff;
-    }
-}
+    &:hover
+        background-color $premier-color
+        color #ffffff
 </style>
 

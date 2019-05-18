@@ -94,82 +94,70 @@ export default {
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style lang="stylus">
-@import '../styles/base';
-@import '../styles/theme';
+@import "../styles/base"
+@import "../styles/theme"
 
-body {
-    margin: 0;
-    padding: 0;
-    background-color: $background-color;
-    font-family: 'Helvetica Neue', Helvetica, Arial, '华文细黑', 'STXihei', '微软雅黑', 'Microsoft YaHei', sans-serif;
-}
+body
+    margin 0
+    padding 0
+    background-color $background-color
+    font-family "Helvetica Neue",Helvetica,Arial,"华文细黑","STXihei","微软雅黑","Microsoft YaHei",sans-serif
 
-#root {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
+#root
+    display flex
+    flex-direction column
+    justify-content flex-start
+    align-items center
+    min-height 100vh
 
-.app__main {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    margin-top: $toolbar-height;
-    margin-bottom: 32px;
-    box-sizing: border-box;
-    z-index: $z-index-main;
+.app__main
+    z-index $z-index-main
+    display flex
+    flex-direction column
+    justify-content flex-start
+    align-items stretch
+    box-sizing border-box
+    margin-top $toolbar-height
+    margin-bottom 32px
 
-    @media $small {
-        padding: 16px;
-        width: 100%;
-    }
+    @media $small
+        padding 16px
+        width 100%
 
-    @media $large {
-        width: 'calc(100vw - %s)' % $tocbar-width;
-        max-width: $max-main-width;
-        padding-right: 32px;
-        padding-left: 32px;
-        padding-top: 64px;
-        will-change: transform;
-        transition: transform 300ms ease;
-        transform: translateX(0px);
-    }
-}
+    @media $large
+        padding-top 64px
+        padding-right 32px
+        padding-left 32px
+        max-width $max-main-width
+        width "calc(100vw - %s)" % $tocbar-width
+        transition transform 300ms ease
+        transform translateX(0px)
+        will-change transform
 
-.root--show-tocbar .app__main {
-    @media $large {
-        @media (max-width: $max-main-width + 2 * $tocbar-width) {
-            transform: 'translateX(calc(((100vw - 100%) / 2 - %s)))' % $tocbar-width;
-        }
-    }
-}
+.root--show-tocbar .app__main
+    @media $large
+        @media (max-width: $max-main-width + 2 * $tocbar-width)
+            transform "translateX(calc(((100vw - 100%) / 2 - %s)))" % $tocbar-width
 
-.app__footer {
-    color: #8a8a8a;
-    text-align: center;
-    padding-bottom: 48px;
-    font-size: 1rem;
-    line-height: 2rem;
+.app__footer
+    padding-bottom 48px
+    color #8a8a8a
+    text-align center
+    font-size 1rem
+    line-height 2rem
 
-    &-link {
-        color: #8a8a8a;
-        padding-top: 0.4rem;
-        padding-bottom: 0.4rem;
+    &-link
+        padding-top 0.4rem
+        padding-bottom 0.4rem
+        color #8a8a8a
 
-        &:hover {
-            color: $premier-color;
-        }
-    }
-}
+        &:hover
+            color $premier-color
 
-.app__debug {
-    border-top-color: black;
-    border-top-style: solid;
-    border-top-width: 1px;
-    margin: 8px;
-    overflow-x: scroll;
-}
+.app__debug
+    overflow-x scroll
+    margin 8px
+    border-top-width 1px
+    border-top-style solid
+    border-top-color black
 </style>
