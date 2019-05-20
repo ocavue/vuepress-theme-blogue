@@ -24,9 +24,14 @@ export default {
         allow: { type: Boolean, required: true },
         page: { type: Object, required: true },
     },
-    computed: {
-        hash: function() {
-            return this.$route.hash
+    data: function() {
+        return {
+            hash: null,
+        }
+    },
+    watch: {
+        $route: function() {
+            this.hash = this.$route.hash
         },
     },
 }
