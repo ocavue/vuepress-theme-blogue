@@ -13,7 +13,7 @@
         "@vuepress/plugin-blog": "^1.0.0-alpha.47",
         "@vuepress/plugin-medium-zoom": "^1.0.0-beta.2",
         "github-markdown-css": "^3.0.1",
-        "vuepress": "^1.0.0-beta.2"
+        "vuepress": "^1.0.3"
     },
     "devDependencies": {
         "eslint": "^5.16.0",
