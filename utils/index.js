@@ -1,6 +1,6 @@
 function isVisiblePost(page) {
     // not posts
-    if (["/", "/about.html", "/resume.html", "/category/", "/tag/"].includes(page.path)) {
+    if (["/", "/about.html", "/resume.html", "/resume_en.html", "/category/", "/tag/"].includes(page.path)) {
         return false
     }
     if (page.path.startsWith("/category/") || page.path.startsWith("/tag/")) {
