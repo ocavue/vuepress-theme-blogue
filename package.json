@@ -9,9 +9,9 @@
         "lint": "yarn run eslint --fix --max-warnings 0 --config .eslintrc --ignore-path .gitignore \"./**/*.{js,vue}\""
     },
     "dependencies": {
-        "@vuepress/plugin-active-header-links": "^1.0.0-beta.2",
-        "@vuepress/plugin-blog": "^1.0.0-alpha.47",
-        "@vuepress/plugin-medium-zoom": "^1.0.0-beta.2",
+        "@vuepress/plugin-active-header-links": "^1.7.1",
+        "@vuepress/plugin-blog": "^1.9.3",
+        "@vuepress/plugin-medium-zoom": "^1.7.1",
         "github-markdown-css": "^3.0.1",
         "vuepress": "^1.0.3"
     },
