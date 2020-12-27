@@ -33,14 +33,21 @@ module.exports = {
     title: "Project Blogue",
     themeConfig: {
         avatarImage: "https://ws2.sinaimg.cn/large/006tKfTcgy1ftrhghh2cgj3074074dfp.jpg",
-        debug: false
+        blogPluginConfig: {
+            comment: {
+                // Which service you'd like to use
+                service: 'disqus',
+                // The owner's name of repository to store the issues and comments.
+                shortname: 'ocavue.com',
+            },
+        }
     }
 }
 ```
 
-- **`title`**: Your blog's title, will be displayed in the toolbar (AKA navbar).
-- **`avatarImage`**: URL string for avatar, will be displayed in the drawer (AKA sidebar).
-- **`debug`**: Whether to show [site and page metadata](https://vuepress.vuejs.org/guide/custom-themes.html#site-and-page-metadata) at bottom of every page.
+- **`title`**: Your blog's title, will be displayed in the toolbar/navbar
+- **`avatarImage`**: URL string for avatar, will be displayed in the drawer/sidebar.
+- **`blogPluginConfig`**: Any extra configuration for [vuepress-plugin-blog](https://github.com/vuepress/vuepress-plugin-blog)
 
 ## Blog Post Configuration
 
@@ -51,13 +58,16 @@ For every markdown file in your VuePress project, you need a [front matter](http
 title: My first blog
 date: 2018-07-01
 image: https://ws1.sinaimg.cn/large/006tNc79ly1fsxfr3d6eij31kw11x4qq.jpg
+tags: ["blog", "markdown"]
+hide: false
 ---
 ```
 
-- **`title`** (required): Your post's title. vuepress-theme-blogue will NOT find H1 title inside your markdown file.
-- **`date`** (required): Your post's date. Your need to use **YYYY-MM-DD** format. vuepress-theme-blogue use post's date to sort, so this field is required.
-- **`image`** (optional): Your post's cover image URL.
-- **`tags`** (optional)
+- **`title`** (required, string): Your post's title. vuepress-theme-blogue will NOT find H1 title inside your markdown file.
+- **`date`** (required, date): Your post's date. Your need to use **YYYY-MM-DD** format. vuepress-theme-blogue use post's date to sort, so this field is required.
+- **`image`** (optional, string): Your post's cover image URL.
+- **`tags`** (optional, list): Your post's tags.
+- **`hide`** (optional, boolean): Hide this post in the homepage.
 
 Your will need **README.md** and **about.md** in your docs directory. These two posts will not be displayed on the home page.
 

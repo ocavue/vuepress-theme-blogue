@@ -65,12 +65,8 @@ export default {
 
             let date = this.page.frontmatter.date
             if (!(typeof date === "string" && date.length >= 10)) {
-                let msg = `date "${date}" is not valid`
-                if (isVisible) {
-                    throw new Error(msg)
-                } else {
-                    console.warn(msg)
-                }
+                let msg = `this.page.frontmatter.date "${date}" is not valid`
+                console.log(msg)
             } else {
                 // YAML (or someone else?) will automatically turn "1999-12-31" into a ISO 8601 UTC format string "1999-12-31T00:00:00.000Z",
                 // so I have to turn it back
