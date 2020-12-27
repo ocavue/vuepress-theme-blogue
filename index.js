@@ -1,5 +1,9 @@
 module.exports = (themeConfig) => {
 
+    const pagination = {
+        lengthPerPage: 10000, // A temporary solution until the paging component is completed
+    }
+
     const defaultBlogPluginConfig = {
         directories: [
             {
@@ -7,9 +11,7 @@ module.exports = (themeConfig) => {
                 dirname: '_posts',
                 path: '/',
                 itemPermalink: '/:slug',
-                // pagination: {
-                //     perPagePosts: 2,
-                // },
+                pagination: pagination
             },
         ],
         frontmatters: [
@@ -20,9 +22,7 @@ module.exports = (themeConfig) => {
                 layout: 'Tag',
                 frontmatter: { title: 'Tag' },
                 itemlayout: 'Tag',
-                // pagination: {
-                //     perPagePosts: 2
-                // }
+                pagination: pagination
             },
         ]
     }
