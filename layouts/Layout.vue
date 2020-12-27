@@ -1,7 +1,7 @@
 
 <template>
     <Posts
-        :pages="$pagination.pages"
+        :pages="postPages"
     />
     <!--
     <h1>DEBUG: Layout.vue</h1>
@@ -19,5 +19,15 @@ import Posts from "../components/Posts.vue"
 export default {
     name: "IndexPost",
     components: { Posts },
+    computed: {
+        postPages : () => {
+            if ( this?.$pagination?.pages === "") {
+                return this.$pagination.pages
+            } else {
+                console.log("warning: unable to find this.$pagination.pages")
+                return []
+            }
+        }
+    },
 }
 </script>
