@@ -1,20 +1,23 @@
+
 <template>
-    <div class="theme-container">
-        <PostCard
-            :page="this.$page"
-            :showContent="true"
-            :showLink="false"
-        />
-        <Comment />
+    <Posts
+        :pages="$pagination.pages"
+    />
+    <!--
+    <h1>DEBUG: Layout.vue</h1>
+    <div id="pagination">
+        <router-link v-if="$pagination.hasPrev" :to="$pagination.prevLink">Prev</router-link>
+        <router-link v-if="$pagination.hasNext" :to="$pagination.nextLink">Next</router-link>
     </div>
+    <h1>DEBUG: Layout.vue</h1>
+    -->
 </template>
 
 <script>
-import PostCard from "../components/PostCard.vue"
-import { Comment } from '@vuepress/plugin-blog/lib/client/components'
+import Posts from "../components/Posts.vue"
 
 export default {
-    name: "Layout",
-    components: { PostCard, Comment },
+    name: "IndexPost",
+    components: { Posts },
 }
 </script>

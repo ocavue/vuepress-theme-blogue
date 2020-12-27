@@ -1,4 +1,3 @@
-
 <template>
     <div
         id="root"
@@ -23,7 +22,8 @@
             :clickMenuButtom="() => showSidebar = !showSidebar"
         />
         <main class="app__main">
-            <component :is="layout" />
+            <!-- <component :is="layout" /> -->
+            <DefaultGlobalLayout />
         </main>
         <footer class="app__footer">
             Power by <a
@@ -31,6 +31,7 @@
                 href="https://github.com/ocavue/vuepress-theme-blogue"
             >Blogue</a>
         </footer>
+        <!--
         <div
             v-if="debug"
             class="app__debug"
@@ -41,6 +42,16 @@
             <pre>this.$tag:  {{ JSON.stringify(this.$tag, null, 4) }}</pre>
             <pre>this.$tags: {{ JSON.stringify(this.$tags, null, 4) }}</pre>
         </div>
+        -->
+        <!--
+        <header style="background-color: #DDD">
+            <router-link to="/">{{ $site.title }}</router-link>· <router-link to="/tag/">Tag</router-link>
+        </header><br>
+        <h1> debug: GlobalLayout.vue</h1>
+        <DefaultGlobalLayout/><br>
+        <footer style="background-color: #DDD"><a href="https://github.com/ulivz/70-lines-of-vuepress-blog-theme">Github</a> · Powered by VuePress</p>
+        </footer>
+        -->
     </div>
 </template>
 
@@ -49,12 +60,12 @@ import Toolbar from "../components/Toolbar.vue"
 import Sidebar from "../components/Sidebar.vue"
 import Tocbar from "../components/Tocbar.vue"
 import Cover from "../components/Cover.vue"
-
 import { getConfig } from "../utils"
+import GlobalLayout from '@app/components/GlobalLayout.vue';
 
 export default {
-    name: "Container",
-    components: { Toolbar, Sidebar, Tocbar, Cover },
+    name: "BlogueGlobalLayout",
+    components: { Toolbar, Sidebar, Tocbar, Cover,     DefaultGlobalLayout: GlobalLayout, },
     beforeRouteEnter: function(to, from, next) {
         next(self => {
             self.showTocbar =
@@ -71,21 +82,6 @@ export default {
             showTocbar: false,
         }
     },
-    computed: {
-        debug: function() {
-            return getConfig(this.$site)["debug"]
-        },
-        layout () {
-            if (this.$page.path) {
-                if (this.$frontmatter.layout) {
-                    // You can also check whether layout exists first as the default global layout does.
-                    return this.$frontmatter.layout
-                }
-                return 'Layout'
-            }
-            return 'NotFound'
-        },
-    },
     methods: {
         isHomePage: function() {
             return this.$page.path === this.$site.base
@@ -98,8 +94,9 @@ export default {
             }
         },
     },
-}
+  }
 </script>
+
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style lang="stylus">

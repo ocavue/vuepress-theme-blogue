@@ -6,7 +6,7 @@
         >
             <router-link
                 class="sidebar__header-avatar"
-                :to="'/about.html'"
+                to="/about/"
                 :style="{'background-image': `url(${avatarURL})`}"
             />
         </div>
@@ -16,21 +16,21 @@
         >
             <router-link
                 class="sidebar__nav-item"
-                :to="'/'"
+                to="/"
             >
                 <span class="sidebar__nav-item-icon icon-home" />
                 <span class="sidebar__nav-item-content">HOME</span>
             </router-link>
             <router-link
                 class="sidebar__nav-item"
-                :to="'/about.html'"
+                to="/about/"
             >
                 <span class="sidebar__nav-item-icon icon-face" />
                 <span class="sidebar__nav-item-content">ABOUT</span>
             </router-link>
             <router-link
                 class="sidebar__nav-item"
-                :to="'/tag/'"
+                to="/tag/"
             >
                 <span class="sidebar__nav-item-icon icon-tag" />
                 <span class="sidebar__nav-item-content">TAGS</span>
