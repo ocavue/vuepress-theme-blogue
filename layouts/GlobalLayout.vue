@@ -55,6 +55,16 @@ import { getConfig } from "../utils"
 export default {
     name: "Container",
     components: { Toolbar, Sidebar, Tocbar, Cover },
+    beforeRouteEnter: function(to, from, next) {
+        next(self => {
+            self.showTocbar =
+                self.$page.path &&
+                self.$page.headers &&
+                self.$frontmatter.layout === "Page" &&
+                // if window width is too small, tocbar will cover main content
+                (typeof window === "undefined" ? false : window.innerWidth > 1024)
+        })
+    },
     data: function() {
         return {
             showSidebar: false,
@@ -87,16 +97,6 @@ export default {
                 this.showTocbar = false
             }
         },
-    },
-    beforeRouteEnter: function(to, from, next) {
-        next(self => {
-            self.showTocbar =
-                self.$page.path &&
-                self.$page.headers &&
-                self.$frontmatter.layout === "Page" &&
-                // if window width is too small, tocbar will cover main content
-                (typeof window === "undefined" ? false : window.innerWidth > 1024)
-        })
     },
 }
 </script>
