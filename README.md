@@ -10,7 +10,7 @@
 
 ## Live demo
 
-https://ocavue.github.io/
+https://ocavue.com/
 
 ## Basic Usage
 
@@ -61,6 +61,10 @@ image: https://ws1.sinaimg.cn/large/006tNc79ly1fsxfr3d6eij31kw11x4qq.jpg
 
 Your will need **README.md** and **about.md** in your docs directory. These two posts will not be displayed on the home page.
 
+## Comment
+
+`vuepress-theme-blogue` use `@vuepress/plugin-blog` to provide comment. Check [its document](https://vuepress-plugin-blog.ulivz.com/guide/getting-started.html#comment) for more details.
+
 ## Complete Example
 
 See https://github.com/ocavue/vuepress-theme-blogue/tree/master/example
@@ -69,7 +73,7 @@ See https://github.com/ocavue/vuepress-theme-blogue/tree/master/example
 
 - [x] Update vuepress to 1.0
 - [x] Tags
-- [ ] Comments
+- [x] Comments
 - [x] Configurable
 - [ ] Customizable sidebar
 
