@@ -60,7 +60,6 @@ import Toolbar from "../components/Toolbar.vue"
 import Sidebar from "../components/Sidebar.vue"
 import Tocbar from "../components/Tocbar.vue"
 import Cover from "../components/Cover.vue"
-import { getConfig } from "../utils"
 import GlobalLayout from '@app/components/GlobalLayout.vue';
 
 export default {
