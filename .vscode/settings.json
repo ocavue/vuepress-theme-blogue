@@ -22,5 +22,8 @@
     "stylusSupremacy.insertBraces": false,
     "stylusSupremacy.insertParenthesisAroundIfCondition": false,
     "stylusSupremacy.selectorSeparator": "\n",
-    "stylusSupremacy.sortProperties": "grouped"
+    "stylusSupremacy.sortProperties": "grouped",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
 }
