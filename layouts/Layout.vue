@@ -20,8 +20,8 @@ export default {
     name: "IndexPost",
     components: { Posts },
     computed: {
-        postPages : () => {
-            if ( this?.$pagination?.pages === "") {
+        postPages: function() {
+            if (this?.$pagination?.pages) {
                 return this.$pagination.pages
             } else {
                 console.log("warning: unable to find this.$pagination.pages")
