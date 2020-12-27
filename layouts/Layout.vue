@@ -1,10 +1,18 @@
 <template>
-    <div>Layout.vue</div>
+    <div class="theme-container">
+        <PostCard
+            :page="this.$page"
+            :showContent="true"
+            :showLink="false"
+        />
+    </div>
 </template>
 
 <script>
+import PostCard from "../components/PostCard.vue"
+
 export default {
-    // This file will not be used
     name: "Layout",
+    components: { PostCard },
 }
 </script>

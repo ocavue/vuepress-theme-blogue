@@ -6,7 +6,7 @@
     "build": "vuepress build docs"
   },
   "dependencies": {
-    "vuepress": "^1.0.0-alpha.47",
+    "vuepress": "^1.7.0",
     "vuepress-theme-blogue": "*"
   }
 }

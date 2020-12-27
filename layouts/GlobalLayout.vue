@@ -55,6 +55,16 @@ import { getConfig } from "../utils"
 export default {
     name: "Container",
     components: { Toolbar, Sidebar, Tocbar, Cover },
+    beforeRouteEnter: function(to, from, next) {
+        next(self => {
+            self.showTocbar =
+                self.$page.path &&
+                self.$page.headers &&
+                self.$frontmatter.layout === "Page" &&
+                // if window width is too small, tocbar will cover main content
+                (typeof window === "undefined" ? false : window.innerWidth > 1024)
+        })
+    },
     data: function() {
         return {
             showSidebar: false,
@@ -65,9 +75,15 @@ export default {
         debug: function() {
             return getConfig(this.$site)["debug"]
         },
-        layout() {
-            if (!this.$page.path) return "NotFound"
-            return this.$frontmatter.layout || "Page"
+        layout () {
+            if (this.$page.path) {
+                if (this.$frontmatter.layout) {
+                    // You can also check whether layout exists first as the default global layout does.
+                    return this.$frontmatter.layout
+                }
+                return 'Layout'
+            }
+            return 'NotFound'
         },
     },
     methods: {
@@ -81,16 +97,6 @@ export default {
                 this.showTocbar = false
             }
         },
-    },
-    beforeRouteEnter: function(to, from, next) {
-        next(self => {
-            self.showTocbar =
-                self.$page.path &&
-                self.$page.headers &&
-                self.$frontmatter.layout === "Page" &&
-                // if window width is too small, tocbar will cover main content
-                (typeof window === "undefined" ? false : window.innerWidth > 1024)
-        })
     },
 }
 </script>
